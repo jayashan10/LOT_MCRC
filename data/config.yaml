@@ -29,12 +29,79 @@ new_chemo_agent_options:
   # flu_dis_period_option_B: 90    # Option B
   # flu_dis_period_option_C: 180   # Option C
 
-# Drug interchangeability rules (defined based on the paper)
+# Comprehensive drug interchangeability rules for CRC
 drug_interchangeability_rules:
   CRC:
-    fluoropyrimidines: ['5-fluorouracil', 'capecitabine', 'trifluridine/tipiracil']
-    anti_egfr: ['cetuximab', 'panitumumab']
+    # Fluoropyrimidines (FLU)
+    fluoropyrimidines:
+      - '5-fluorouracil'
+      - 'capecitabine'
+      - 'trifluridine'
+      - 'tipiracil'
+      - 'S-1'  # in some regions
+    
+    # Anti-EGFR agents
+    anti_egfr:
+      - 'cetuximab'
+      - 'panitumumab'
+    
+    # Anti-VEGF agents
+    anti_vegf:
+      - 'bevacizumab'
+      - 'aflibercept'
+      - 'ramucirumab'
+    
+    # Other targeted therapies
+    other_targeted:
+      - 'regorafenib'
+      - 'encorafenib'  # for BRAF V600E mutations
+    
+    # Standard chemotherapy agents
+    chemotherapy:
+      platinum:
+        - 'oxaliplatin'
+        - 'cisplatin'
+      topoisomerase:
+        - 'irinotecan'
+      other:
+        - 'leucovorin'  # Not a cytotoxic agent but commonly used
+    
+    # Common combination regimens
+    standard_regimens:
+      folfox:
+        - '5-fluorouracil'
+        - 'leucovorin'
+        - 'oxaliplatin'
+      folfiri:
+        - '5-fluorouracil'
+        - 'leucovorin'
+        - 'irinotecan'
+      capox:
+        - 'capecitabine'
+        - 'oxaliplatin'
+      
+    # Interchangeable combinations
     combinations:
-      - ['oxaliplatin', 'capecitabine']
-      - ['irinotecan', '5-fluorouracil']
-    # Add other interchangeable drug classes for CRC here if needed based on clinical knowledge
+      - ['oxaliplatin', 'capecitabine']  # CAPOX
+      - ['oxaliplatin', '5-fluorouracil'] # FOLFOX
+      - ['irinotecan', '5-fluorouracil']  # FOLFIRI
+    
+    # Treatment sequence rules
+    sequence_rules:
+      first_line_preferred:
+        - 'FOLFOX'
+        - 'FOLFIRI'
+        - 'CAPOX'
+      second_line_common:
+        - 'FOLFIRI after FOLFOX'
+        - 'FOLFOX after FOLFIRI'
+      maintenance_options:
+        - 'fluoropyrimidine + bevacizumab'
+        - 'fluoropyrimidine monotherapy'
+
+    # Special considerations
+    molecular_markers:
+      RAS_wildtype:
+        preferred_biologics: ['cetuximab', 'panitumumab']
+      BRAF_V600E:
+        preferred_combination: ['encorafenib', 'cetuximab']

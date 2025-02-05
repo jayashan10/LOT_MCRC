@@ -3,7 +3,7 @@ import pandas as pd
 def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_options, new_chemo_agent_options, drug_interchangeability):
     """
     Calculate lines of therapy for a single patient incorporating both 28-day window
-    and CRC-specific rules.
+    and CRC-specific rules with enhanced drug handling.
     """
     # Initialize patient's first treatment
     line_counter = 1
@@ -11,7 +11,12 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
     last_admin_date = patient_df.iloc[0]['administratedate']
     last_line_start_date = last_admin_date
     current_regimen = patient_df.iloc[0]['drugname']
-    is_initial_regimen = True  # Flag to track initial 28-day window
+    is_initial_regimen = True
+    
+    # Track molecular markers and current regimen type
+    current_regimen_type = None  # To track if it's FOLFOX, FOLFIRI, etc.
+    has_anti_vegf = False
+    has_anti_egfr = False
     
     # Initialize output columns
     patient_df = patient_df.copy()
@@ -19,7 +24,9 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
     patient_df['regimen'] = ''
     patient_df['line_start_date'] = None
     patient_df['line_end_date'] = None
-    patient_df['regimen_status'] = ''  # New column to track regimen changes
+    patient_df['regimen_status'] = ''
+    patient_df['regimen_type'] = ''  # New column to track standard regimen types
+    patient_df['maintenance_flag'] = False  # New column to identify maintenance therapy
     
     # Set first administration
     patient_df.iloc[0, patient_df.columns.get_loc('line_of_therapy')] = line_counter
@@ -27,6 +34,23 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
     patient_df.iloc[0, patient_df.columns.get_loc('line_start_date')] = last_line_start_date
     patient_df.iloc[0, patient_df.columns.get_loc('line_end_date')] = last_admin_date
     patient_df.iloc[0, patient_df.columns.get_loc('regimen_status')] = 'Initial Drug'
+    
+    def identify_standard_regimen(drugs):
+        """Helper function to identify standard regimens"""
+        drug_set = set(drugs)
+        for regimen, components in drug_interchangeability['CRC']['standard_regimens'].items():
+            if set(components).issubset(drug_set):
+                return regimen
+        return None
+    
+    def is_maintenance_therapy(drugs):
+        """Helper function to identify maintenance therapy"""
+        drug_set = set(drugs)
+        for maintenance in drug_interchangeability['CRC']['sequence_rules']['maintenance_options']:
+            maint_drugs = set(maintenance.split('+'))
+            if maint_drugs.issubset(drug_set):
+                return True
+        return False
     
     # Process subsequent administrations
     for index, row in patient_df.iloc[1:].iterrows():
@@ -46,51 +70,75 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
                 current_regimen_drugs.add(drug_name)
                 current_regimen = '+'.join(sorted(current_regimen_drugs))
                 regimen_status = 'Initial Combination'
+                
+                # Check if it forms a standard regimen
+                current_regimen_type = identify_standard_regimen(current_regimen_drugs)
+                if current_regimen_type:
+                    regimen_status = f'Initial {current_regimen_type}'
             else:
                 regimen_status = 'Continuation'
                 
         # Phase 2: Post-Initial Regimen Rules
         else:
-            is_initial_regimen = False  # End of 28-day window
+            is_initial_regimen = False
             
-            # 1. Treatment Gap Rule (180 days)
+            # 1. Treatment Gap Rule
             if days_since_last_admin > gap_period_options['gap_treatment_restart']:
                 new_line_needed = True
                 regimen_status = 'New Line (Gap)'
                 
-            # 2. Biologic Addition Rule (non-EGFR)
-            elif (drug_category in ('biologics', 'targeted') and 
-                  drug_name not in drug_interchangeability['CRC']['anti_egfr']):
-                if days_since_line_start > new_biologic_agent_options['after_initial_period']:
+            # 2. Biologic Rules (Enhanced)
+            elif drug_category in ('biologics', 'targeted'):
+                if drug_name in drug_interchangeability['CRC']['anti_vegf']:
+                    if days_since_line_start > new_biologic_agent_options['after_initial_period']:
+                        new_line_needed = True
+                        regimen_status = 'New Line (Anti-VEGF Addition)'
+                    else:
+                        regimen_status = 'Anti-VEGF Addition (Within Window)'
+                        has_anti_vegf = True
+                        
+                elif drug_name in drug_interchangeability['CRC']['anti_egfr']:
+                    if days_since_line_start > new_biologic_agent_options['bio_dis1_period']:
+                        new_line_needed = True
+                        regimen_status = 'New Line (EGFR Addition/Switch)'
+                    else:
+                        regimen_status = 'EGFR Addition (Within Window)'
+                        has_anti_egfr = True
+                        
+                elif drug_name in drug_interchangeability['CRC']['other_targeted']:
                     new_line_needed = True
-                    regimen_status = 'New Line (Biologic Addition)'
-                elif drug_name not in current_regimen_drugs:
-                    regimen_status = 'Biologic Addition (Within Window)'
+                    regimen_status = 'New Line (Other Targeted Agent)'
                     
-            # 3. EGFR Inhibitor Rules
-            elif drug_name in drug_interchangeability['CRC']['anti_egfr']:
-                if days_since_line_start > new_biologic_agent_options['bio_dis1_period']:
-                    new_line_needed = True
-                    regimen_status = 'New Line (EGFR Addition/Switch)'
-                elif drug_name not in current_regimen_drugs:
-                    regimen_status = 'EGFR Addition (Within Window)'
-                    
-            # 4. New Chemo Addition Rule
+            # 3. Chemotherapy Rules (Enhanced)
             elif drug_category == 'chemotherapy':
                 is_fluoropyrimidine = drug_name in drug_interchangeability['CRC']['fluoropyrimidines']
                 has_flu_in_regimen = any(drug in drug_interchangeability['CRC']['fluoropyrimidines'] 
                                        for drug in current_regimen_drugs)
                 
-                if not is_fluoropyrimidine and has_flu_in_regimen:
+                # Handle platinum agents
+                if drug_name in drug_interchangeability['CRC']['chemotherapy']['platinum']:
+                    if has_flu_in_regimen and days_since_line_start > new_chemo_agent_options['flu_dis_period']:
+                        new_line_needed = True
+                        regimen_status = 'New Line (Platinum Addition)'
+                        
+                # Handle topoisomerase inhibitors
+                elif drug_name in drug_interchangeability['CRC']['chemotherapy']['topoisomerase']:
+                    if has_flu_in_regimen and days_since_line_start > new_chemo_agent_options['flu_dis_period']:
+                        new_line_needed = True
+                        regimen_status = 'New Line (Topoisomerase Addition)'
+                
+                # Default chemotherapy handling
+                elif not is_fluoropyrimidine and has_flu_in_regimen:
                     if days_since_line_start > new_chemo_agent_options['flu_dis_period']:
                         new_line_needed = True
                         regimen_status = 'New Line (Chemo Addition to FLU)'
-                    elif drug_name not in current_regimen_drugs:
+                    else:
                         regimen_status = 'Chemo Addition (Within Window)'
-                elif drug_name not in current_regimen_drugs:
-                    regimen_status = 'Regimen Addition'
-            
-            # Default status if no other conditions met
+                        
+            # Check for maintenance therapy transition
+            if not new_line_needed and is_maintenance_therapy(current_regimen_drugs):
+                regimen_status = 'Maintenance Therapy'
+                
             if not regimen_status:
                 regimen_status = 'Continuation'
 
@@ -100,7 +148,9 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
             current_regimen_drugs = set([drug_name])
             current_regimen = drug_name
             last_line_start_date = admin_date
-            is_initial_regimen = True  # Reset for new line's 28-day window
+            is_initial_regimen = True
+            has_anti_vegf = False
+            has_anti_egfr = False
         else:
             if drug_name not in current_regimen_drugs:
                 current_regimen_drugs.add(drug_name)
@@ -112,6 +162,8 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
         patient_df.at[index, 'line_start_date'] = last_line_start_date
         patient_df.at[index, 'line_end_date'] = admin_date
         patient_df.at[index, 'regimen_status'] = regimen_status
+        patient_df.at[index, 'regimen_type'] = identify_standard_regimen(current_regimen_drugs)
+        patient_df.at[index, 'maintenance_flag'] = is_maintenance_therapy(current_regimen_drugs)
         
         last_admin_date = admin_date
     
