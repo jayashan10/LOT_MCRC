@@ -17,25 +17,27 @@ if __name__ == '__main__':
 
 
     # --- 2. Load Input Data from CSV file ---
-    input_df = pd.read_csv('data/input_data.csv')
-    input_df['administratedate'] = pd.to_datetime(input_df['administratedate'])
-
-    # Sort data
-    input_df = input_df.sort_values(['patientid', 'administratedate'])
+    input_df = pd.read_csv('data/input_data.csv', parse_dates=['administratedate']) # Important: parse dates
     print(input_df.dtypes) # Print data types of the DataFrame
     print(input_df['administratedate'].head()) # Print the first few dates to inspect format
 
     # --- 3. Define Lines of Therapy for CRC ---
-    crc_df_with_lot = define_treatment_lines_oncology(
-        input_df.copy(), # Use .copy() to avoid modifying original input_df
+    detailed_output, summary_output = define_treatment_lines_oncology(
+        input_df.copy(),
         gap_period_options,
         new_biologic_agent_options,
         new_chemo_agent_options,
-        # maintenance_gap_options={}, # Not used for CRC, pass empty dict
         drug_interchangeability_rules
     )
 
-    # --- 4. Save Output to CSV ---
-    crc_df_with_lot.to_csv('output/crc_lot_output.csv', index=False)
+    # --- 4. Save Outputs to CSV ---
+    detailed_output.to_csv('output/crc_lot_detailed.csv', index=False)
+    summary_output.to_csv('output/crc_lot_summary.csv', index=False)
 
-    print("CRC Line of Therapy definition completed. Output saved to output/crc_lot_output.csv")
+    print("CRC Line of Therapy definition completed.")
+    print("Detailed output saved to output/crc_lot_detailed.csv")
+    print("Summary output saved to output/crc_lot_summary.csv")
+
+    # Optional: Display summary statistics
+    print("\nSummary of Lines of Therapy:")
+    print(summary_output.groupby('patientid')['line_of_therapy'].max().describe())
