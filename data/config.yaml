@@ -1,0 +1,40 @@
+cancer_type: CRC
+
+# Gap period options for different rules (Table 1)
+gap_period_options:
+  gap_treatment_restart: 180  # Option C (Optimal for CRC from Table 1)
+  # Alternative options for gap_treatment_restart if you want to test them:
+  # gap_treatment_restart_option_A: 60  # Option A
+  # gap_treatment_restart_option_B: 90  # Option B
+
+# Options for new biologic agent addition (Table 3)
+new_biologic_agent_options:
+  after_initial_period: 90    # Option C (Optimal for non-CET/PAN from Table 3)
+  # Alternative options for after_initial_period (non-CET/PAN) if you want to test them:
+  # after_initial_period_option_A: 28   # Option A
+  # after_initial_period_option_B: 90   # Option B (same as C in value, but listed as option B in Table)
+
+  bio_dis1_period: 90        # Option B (Optimal for cetuximab/panitumumab from Table 3)
+  # Alternative options for bio_dis1_period (cetuximab/panitumumab) if you want to test them:
+  # bio_dis1_period_option_A: 60    # Option A
+  # bio_dis1_period_option_C: 180   # Option C
+
+  # Removed redundant 'new_biologic_agent_period' - 'after_initial_period' covers non-CET/PAN biologics
+
+
+# Options for new chemotherapy agent addition to FLU regimen (Table 3)
+new_chemo_agent_options:
+  flu_dis_period: 60         # Option A (Optimal for new chemo to FLU regimen from Table 3)
+  # Alternative options for flu_dis_period if you want to test them:
+  # flu_dis_period_option_B: 90    # Option B
+  # flu_dis_period_option_C: 180   # Option C
+
+# Drug interchangeability rules (defined based on the paper)
+drug_interchangeability_rules:
+  CRC:
+    fluoropyrimidines: ['5-fluorouracil', 'capecitabine', 'trifluridine/tipiracil']
+    anti_egfr: ['cetuximab', 'panitumumab']
+    combinations:
+      - ['oxaliplatin', 'capecitabine']
+      - ['irinotecan', '5-fluorouracil']
+    # Add other interchangeable drug classes for CRC here if needed based on clinical knowledge
