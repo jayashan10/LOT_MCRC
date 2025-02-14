@@ -13,6 +13,12 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
     current_regimen = patient_df.iloc[0]['drugname']
     is_initial_regimen = True
     
+    # --- TRACK UNIQUE BIOLOGIC/TARGETED DRUGS ---
+    biologic_targeted_drugs = set()
+    if patient_df.iloc[0]['drugcategory'] in ('biologics', 'targeted'):
+        biologic_targeted_drugs.add(patient_df.iloc[0]['drugname'])
+
+
     # Track molecular markers and current regimen type
     current_regimen_type = None  # To track if it's FOLFOX, FOLFIRI, etc.
     has_anti_vegf = False
@@ -71,6 +77,10 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
                 current_regimen = '+'.join(sorted(current_regimen_drugs))
                 regimen_status = 'Initial Combination'
                 
+                # --- Add to Set if Biologic/Targeted ---
+                if drug_category in ('biologics', 'targeted'):
+                    biologic_targeted_drugs.add(drug_name)
+
                 # Check if it forms a standard regimen
                 current_regimen_type = identify_standard_regimen(current_regimen_drugs)
                 if current_regimen_type:
@@ -86,28 +96,43 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
             if days_since_last_admin > gap_period_options['gap_treatment_restart']:
                 new_line_needed = True
                 regimen_status = 'New Line (Gap)'
-                
+
+            elif drug_name in current_regimen_drugs:
+                regimen_status = 'Continuation'
+
             # 2. Biologic Rules (Enhanced)
             elif drug_category in ('biologics', 'targeted'):
-                if drug_name in drug_interchangeability['CRC']['anti_vegf']:
-                    if days_since_line_start > new_biologic_agent_options['after_initial_period']:
-                        new_line_needed = True
-                        regimen_status = 'New Line (Anti-VEGF Addition)'
-                    else:
-                        regimen_status = 'Anti-VEGF Addition (Within Window)'
-                        has_anti_vegf = True
-                        
-                elif drug_name in drug_interchangeability['CRC']['anti_egfr']:
-                    if days_since_line_start > new_biologic_agent_options['bio_dis1_period']:
-                        new_line_needed = True
-                        regimen_status = 'New Line (EGFR Addition/Switch)'
-                    else:
-                        regimen_status = 'EGFR Addition (Within Window)'
-                        has_anti_egfr = True
-                        
-                elif drug_name in drug_interchangeability['CRC']['other_targeted']:
+
+                biologic_targeted_drugs.add(drug_name)
+
+                if len(biologic_targeted_drugs) >= 2:  # Check *number* of unique drugs
                     new_line_needed = True
-                    regimen_status = 'New Line (Other Targeted Agent)'
+                    regimen_status = 'New Line (Second Biologic/Targeted Agent Added)'
+                
+                else: 
+                    if drug_name in drug_interchangeability['CRC']['anti_vegf']:
+                        if days_since_line_start > new_biologic_agent_options['after_initial_period']:
+                            new_line_needed = True
+                            regimen_status = 'New Line (Anti-VEGF Addition)'
+                        else:
+                            regimen_status = 'Anti-VEGF Addition (Within Window)'
+                            has_anti_vegf = True
+                            
+                    elif drug_name in drug_interchangeability['CRC']['anti_egfr']:
+                        if days_since_line_start > new_biologic_agent_options['bio_dis1_period']:
+                            new_line_needed = True
+                            regimen_status = 'New Line (EGFR Addition/Switch)'
+                        else:
+                            regimen_status = 'EGFR Addition (Within Window)'
+                            has_anti_egfr = True
+                            
+                    elif drug_name in drug_interchangeability['CRC']['other_targeted']:
+                        if days_since_line_start > new_biologic_agent_options['bio_dis1_period']:
+                            new_line_needed = True
+                            regimen_status = 'New Line (Other Targeted Agent)'
+                        else:
+                            regimen_status = 'Other Targeted Agent Addition (Within Window)'
+                        
                     
             # 3. Chemotherapy Rules (Enhanced)
             elif drug_category == 'chemotherapy':
@@ -151,10 +176,21 @@ def calculate_patient_lot(patient_df, gap_period_options, new_biologic_agent_opt
             is_initial_regimen = True
             has_anti_vegf = False
             has_anti_egfr = False
+            
+            # --- Reset Counter for New Line (Unique Drug Set) ---
+            biologic_targeted_drugs = set()
+            if drug_category in ('biologics', 'targeted'):
+                biologic_targeted_drugs.add(drug_name)
+
+
         else:
             if drug_name not in current_regimen_drugs:
                 current_regimen_drugs.add(drug_name)
                 current_regimen = '+'.join(sorted(current_regimen_drugs))
+
+                # --- Add to Unique Drug Set if Biologic/Targeted ---
+                if drug_category in ('biologics', 'targeted'):
+                    biologic_targeted_drugs.add(drug_name)
 
         # Update row values
         patient_df.at[index, 'line_of_therapy'] = line_counter
