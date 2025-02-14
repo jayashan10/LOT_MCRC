@@ -17,7 +17,8 @@ if __name__ == '__main__':
 
 
     # --- 2. Load Input Data from CSV file ---
-    input_df = pd.read_csv('data/input_data.csv', parse_dates=['administratedate']) # Important: parse dates
+    # input_df = pd.read_csv('data/input_data.csv', parse_dates=['administratedate']) # Important: parse dates
+    input_df = pd.read_csv('data/input_data_syn.csv', parse_dates=['administratedate']) # Important: parse dates
     print(input_df.dtypes) # Print data types of the DataFrame
     print(input_df['administratedate'].head()) # Print the first few dates to inspect format
 
