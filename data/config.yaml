@@ -9,12 +9,12 @@ gap_period_options:
 
 # Options for new biologic agent addition (Table 3)
 new_biologic_agent_options:
-  after_initial_period: 90    # Option C (Optimal for non-CET/PAN from Table 3)
+  after_initial_period: 180    # Changed from 90 to 180 to match flowchart
   # Alternative options for after_initial_period (non-CET/PAN) if you want to test them:
   # after_initial_period_option_A: 28   # Option A
   # after_initial_period_option_B: 90   # Option B (same as C in value, but listed as option B in Table)
 
-  bio_dis1_period: 90        # Option B (Optimal for cetuximab/panitumumab from Table 3)
+  bio_dis1_period: 90        # Keeping 90 days for CET/PAN as per flowchart
   # Alternative options for bio_dis1_period (cetuximab/panitumumab) if you want to test them:
   # bio_dis1_period_option_A: 60    # Option A
   # bio_dis1_period_option_C: 180   # Option C
@@ -35,6 +35,8 @@ drug_interchangeability_rules:
     # Fluoropyrimidines (FLU)
     fluoropyrimidines:
       - '5-fluorouracil'
+      - 'fluorouracil'
+      - '5-fu'
       - 'capecitabine'
       - 'trifluridine'
       - 'tipiracil'
@@ -80,6 +82,7 @@ drug_interchangeability_rules:
         - 'capecitabine'
         - 'oxaliplatin'
       
+    
     # Interchangeable combinations
     combinations:
       - ['oxaliplatin', 'capecitabine']  # CAPOX
