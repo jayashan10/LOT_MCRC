@@ -41,7 +41,7 @@ drug_interchangeability_rules:
       - 'trifluridine'
       - 'tipiracil'
       - 'S-1'  # in some regions
-    
+      
     # Anti-EGFR agents
     anti_egfr:
       - 'cetuximab'
@@ -57,7 +57,14 @@ drug_interchangeability_rules:
     other_targeted:
       - 'regorafenib'
       - 'encorafenib'  # for BRAF V600E mutations
-    
+      - fruquintinib
+      - pembrolizumab
+      - nivolumab
+      - sorafenib
+      - tuctinib
+      - ipilimumab
+      - adagrasib
+
     # Standard chemotherapy agents
     chemotherapy:
       platinum:

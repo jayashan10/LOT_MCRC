@@ -1,396 +1,258 @@
-patientid,line_of_therapy,line_start_date,line_end_date,duration_days,num_administrations,drugs,regimen_type,maintenance_flag
-1,1,2023-01-01,2023-03-07,65,6,5-fluorouracil,5-FU,False
-2,1,2023-01-01,2023-01-31,30,11,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-2,2,2023-01-31,2023-02-22,22,4,5-fluorouracil+encorafenib+oxaliplatin,5-FU,False
-2,3,2023-03-11,2023-03-11,0,3,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-2,4,2023-03-11,2023-04-14,34,7,aflibercept+capecitabine+encorafenib+oxaliplatin,CAPOX + aflibercept,False
-2,5,2023-04-14,2023-04-27,13,4,5-fluorouracil+cetuximab+encorafenib+oxaliplatin,5-FU + cetuximab,False
-2,6,2023-05-22,2023-05-22,0,3,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-2,7,2023-05-22,2023-06-11,20,4,capecitabine+encorafenib+oxaliplatin+regorafenib,CAPOX,False
-2,8,2023-07-30,2024-01-17,171,10,5-fluorouracil,5-FU,False
-2,9,2024-01-17,2024-03-25,68,4,5-fluorouracil+nivolumab,5-FU,False
-2,10,2024-03-25,2024-04-20,26,3,5-fluorouracil+capecitabine,Capecitabine,False
-3,1,2023-01-01,2023-02-16,46,4,5-fluorouracil,5-FU,False
-3,2,2023-04-06,2023-07-28,113,8,cetuximab+cisplatin,Cetuximab,False
-4,1,2023-01-01,2023-04-25,114,13,capecitabine+regorafenib,Capecitabine,False
-4,2,2023-04-25,2023-07-20,86,11,5-fluorouracil+capecitabine+regorafenib,Capecitabine,False
-4,3,2023-07-20,2023-08-19,30,5,capecitabine+encorafenib+regorafenib,Capecitabine,False
-5,1,2023-01-01,2023-03-19,77,24,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-5,2,2023-03-30,2023-07-23,115,33,5-fluorouracil+leucovorin+nivolumab+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-5,3,2024-03-09,2024-04-26,48,11,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-5,4,2024-04-26,2024-11-14,202,24,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-5,5,2024-11-14,2024-12-18,34,3,bevacizumab+capecitabine,Capecitabine + bevacizumab,False
-5,6,2025-01-01,2025-03-26,84,6,5-fluorouracil+capecitabine,Capecitabine,False
-6,1,2023-01-01,2023-07-12,192,32,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-6,2,2023-07-12,2023-12-14,155,25,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-7,1,2023-01-01,2023-02-27,57,15,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-7,2,2023-03-21,2023-04-03,13,7,capecitabine+irinotecan+leucovorin+nivolumab,Other,False
-7,3,2023-04-24,2023-04-24,0,3,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-7,4,2023-06-12,2024-02-15,248,14,pembrolizumab,Other,False
-7,5,2024-02-15,2025-03-24,403,24,encorafenib+nivolumab+pembrolizumab,Other,False
-8,1,2023-01-01,2023-07-03,183,23,capecitabine+oxaliplatin,CAPOX,False
-8,2,2023-07-03,2023-10-17,106,7,5-fluorouracil+capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-8,3,2023-10-17,2023-11-02,16,2,cetuximab+panitumumab,Panitumumab + Cetuximab,False
-8,4,2023-11-02,2024-02-21,111,7,encorafenib+panitumumab,Panitumumab,False
-9,1,2023-01-01,2023-04-11,100,14,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-9,2,2023-04-11,2023-04-28,17,3,5-fluorouracil+capecitabine+oxaliplatin,CAPOX,False
-9,3,2023-04-28,2023-04-28,0,1,regorafenib,Regorafenib,False
-9,4,2023-05-19,2023-10-22,156,25,capecitabine+cetuximab+oxaliplatin+regorafenib,CAPOX + cetuximab,False
-10,1,2023-01-01,2023-04-07,96,28,5-fluorouracil+cetuximab+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-10,2,2023-04-19,2023-06-06,48,13,5-fluorouracil+cetuximab+irinotecan+leucovorin+regorafenib,FOLFIRI + cetuximab,False
-10,3,2023-06-06,2023-07-15,39,8,5-fluorouracil+cetuximab+irinotecan+leucovorin+ramucirumab,FOLFIRI + ramucirumab + cetuximab,False
-10,4,2023-07-15,2023-08-16,32,9,5-fluorouracil+capecitabine+cetuximab+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-11,1,2023-01-01,2023-10-12,284,51,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-11,2,2023-11-11,2023-12-20,39,3,ramucirumab,Ramucirumab,False
-11,3,2023-12-20,2024-02-13,55,4,encorafenib+ramucirumab,Ramucirumab,False
-11,4,2024-02-13,2024-05-27,104,6,bevacizumab+ramucirumab,Bevacizumab + Ramucirumab,False
-11,5,2024-05-27,2024-09-23,119,7,5-fluorouracil+ramucirumab,5-FU + ramucirumab,False
-11,6,2024-11-02,2025-07-21,261,17,irinotecan+ramucirumab,Ramucirumab,False
-11,7,2025-07-21,2025-12-25,157,8,bevacizumab+irinotecan+panitumumab,Bevacizumab + Panitumumab,False
-11,8,2025-12-25,2026-01-24,30,3,bevacizumab+leucovorin,Bevacizumab,False
-12,1,2023-01-01,2023-03-30,88,20,aflibercept+capecitabine+oxaliplatin,CAPOX + aflibercept,False
-12,2,2023-03-30,2023-04-17,18,4,5-fluorouracil+aflibercept+capecitabine+oxaliplatin,CAPOX + aflibercept,False
-12,3,2023-06-02,2023-12-13,194,11,regorafenib,Regorafenib,False
-13,1,2023-01-01,2023-05-12,131,26,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-13,2,2023-05-12,2023-05-12,0,2,capecitabine+oxaliplatin,CAPOX,False
-13,3,2023-06-12,2023-07-18,36,3,5-fluorouracil,5-FU,False
-14,1,2023-01-01,2023-03-22,80,24,capecitabine+cetuximab+oxaliplatin,CAPOX + cetuximab,False
-14,2,2023-04-15,2023-06-03,49,13,capecitabine+cetuximab+oxaliplatin+pembrolizumab,CAPOX + cetuximab,False
-14,3,2023-06-03,2023-07-30,57,10,capecitabine+cetuximab+oxaliplatin+ramucirumab,CAPOX + ramucirumab + cetuximab,False
-14,4,2025-03-12,2025-05-12,61,4,aflibercept,Aflibercept,False
-14,5,2025-05-12,2025-11-14,186,11,aflibercept+panitumumab,Aflibercept + Panitumumab,False
-15,1,2023-01-01,2023-02-16,46,16,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-15,2,2023-12-20,2024-01-13,24,6,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-16,1,2023-01-01,2023-02-14,44,8,5-fluorouracil+capecitabine+ramucirumab,Capecitabine + ramucirumab,False
-16,2,2023-03-03,2023-11-18,260,30,5-fluorouracil+panitumumab+ramucirumab,5-FU + ramucirumab + panitumumab,False
-17,1,2023-01-01,2023-01-30,29,8,5-fluorouracil+panitumumab,5-FU + panitumumab,False
-17,2,2023-02-21,2023-03-14,21,5,5-fluorouracil+aflibercept+capecitabine+panitumumab,Capecitabine + aflibercept + panitumumab,False
-17,3,2023-03-14,2023-05-23,70,9,5-fluorouracil+bevacizumab+panitumumab,5-FU + bevacizumab + panitumumab,False
-17,4,2023-05-23,2023-06-21,29,5,5-fluorouracil+panitumumab+ramucirumab,5-FU + ramucirumab + panitumumab,False
-17,5,2023-07-15,2023-07-28,13,4,5-fluorouracil+capecitabine+panitumumab,Capecitabine + panitumumab,False
-17,6,2024-05-22,2024-07-24,63,9,5-fluorouracil+capecitabine+panitumumab+ramucirumab,Capecitabine + ramucirumab + panitumumab,False
-18,1,2023-01-01,2023-06-23,173,11,5-fluorouracil,5-FU,False
-18,2,2023-07-13,2023-07-13,0,1,capecitabine,Capecitabine,False
-18,3,2023-08-18,2024-05-04,260,15,cisplatin,Other,False
-18,4,2024-06-23,2025-02-22,244,13,irinotecan,Other,False
-18,5,2025-04-08,2025-08-09,123,6,aflibercept,Aflibercept,False
-19,1,2023-01-01,2023-06-01,151,10,5-fluorouracil+ramucirumab,5-FU + ramucirumab,False
-19,2,2023-06-01,2023-09-22,113,7,5-fluorouracil+regorafenib,5-FU,False
-19,3,2023-11-06,2023-11-28,22,2,cetuximab,Cetuximab,False
-19,4,2024-01-06,2024-02-06,31,3,bevacizumab,Bevacizumab,False
-19,5,2024-02-06,2024-06-28,143,10,aflibercept+bevacizumab+cetuximab,Bevacizumab + Aflibercept + Cetuximab,False
-20,1,2023-01-01,2023-02-12,42,20,5-fluorouracil+cetuximab+leucovorin+oxaliplatin,FOLFOX + cetuximab,False
-20,2,2023-02-22,2023-02-22,0,5,5-fluorouracil+cetuximab+encorafenib+leucovorin+oxaliplatin,FOLFOX + cetuximab,False
-20,3,2023-04-04,2023-05-18,44,4,regorafenib,Regorafenib,False
-20,4,2023-05-18,2023-11-28,194,13,bevacizumab+regorafenib,Regorafenib + bevacizumab,False
-21,1,2023-01-01,2023-03-13,71,9,capecitabine+oxaliplatin,CAPOX,False
-21,2,2023-03-13,2023-03-26,13,3,5-fluorouracil+oxaliplatin,5-FU,False
-21,3,2023-04-15,2023-07-18,94,13,capecitabine+oxaliplatin+ramucirumab,CAPOX + ramucirumab,False
-21,4,2023-08-02,2023-10-16,75,10,5-fluorouracil+capecitabine+oxaliplatin,CAPOX,False
-21,5,2023-10-16,2023-10-16,0,1,nivolumab,Other,False
-22,1,2023-01-01,2023-04-11,100,16,capecitabine+oxaliplatin,CAPOX,False
-22,2,2023-05-19,2023-06-08,20,3,aflibercept+leucovorin,Aflibercept,False
-22,3,2023-07-04,2023-09-21,79,7,aflibercept+regorafenib,Regorafenib + aflibercept,False
-22,4,2023-10-20,2024-02-01,104,7,panitumumab,Panitumumab,False
-22,5,2024-02-01,2024-06-17,137,9,capecitabine+panitumumab,Capecitabine + panitumumab,False
-23,1,2023-01-01,2023-02-13,43,5,bevacizumab+capecitabine,Capecitabine + bevacizumab,False
-23,2,2023-02-28,2023-05-25,86,6,5-fluorouracil+capecitabine,Capecitabine,False
-23,3,2023-06-14,2023-10-30,138,10,capecitabine+panitumumab,Capecitabine + panitumumab,False
-23,4,2023-10-30,2023-12-05,36,3,capecitabine+nivolumab,Capecitabine,False
-24,1,2023-01-01,2023-03-06,64,27,5-fluorouracil+bevacizumab+leucovorin+oxaliplatin,FOLFOX + bevacizumab,False
-24,2,2023-03-06,2023-04-29,54,13,5-fluorouracil+bevacizumab+capecitabine+leucovorin+oxaliplatin,FOLFOX + bevacizumab,False
-24,3,2023-06-08,2023-07-27,49,4,cetuximab,Cetuximab,False
-24,4,2023-07-27,2024-02-29,217,12,capecitabine+cetuximab,Capecitabine + cetuximab,False
-24,5,2024-04-20,2024-09-17,150,9,cisplatin,Other,False
-25,1,2023-01-01,2023-06-20,170,43,5-fluorouracil+leucovorin+oxaliplatin+regorafenib,FOLFOX,False
-25,2,2023-06-20,2023-09-04,76,17,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+regorafenib,FOLFOX,False
-25,3,2023-09-04,2023-11-07,64,17,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab+regorafenib,FOLFOX + ramucirumab,False
-25,4,2023-11-27,2023-11-27,0,5,5-fluorouracil+leucovorin+oxaliplatin+panitumumab+regorafenib,FOLFOX + panitumumab,False
-25,5,2024-01-05,2024-01-05,0,1,cetuximab,Cetuximab,False
-25,6,2024-01-05,2024-05-20,136,11,encorafenib+panitumumab,Panitumumab,False
-25,7,2024-06-16,2024-06-16,0,1,irinotecan,Other,False
-25,8,2024-06-16,2025-03-04,261,17,encorafenib+irinotecan+nivolumab+panitumumab,Panitumumab,False
-26,1,2023-01-01,2023-06-07,157,47,5-fluorouracil+encorafenib+irinotecan+leucovorin,FOLFIRI,False
-26,2,2023-06-07,2023-10-07,122,25,5-fluorouracil+capecitabine+encorafenib+irinotecan+leucovorin,FOLFIRI,False
-26,3,2023-10-07,2023-12-15,69,21,5-fluorouracil+cetuximab+encorafenib+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-26,4,2024-01-23,2024-08-22,212,13,pembrolizumab,Other,False
-27,1,2023-01-01,2023-01-31,30,8,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-27,2,2023-01-31,2023-08-15,196,10,capecitabine+cetuximab,Capecitabine + cetuximab,False
-27,3,2023-08-15,2023-10-01,47,3,cetuximab+pembrolizumab,Cetuximab,False
-28,1,2023-01-01,2023-10-07,279,49,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-28,2,2023-11-20,2024-07-22,245,14,pembrolizumab+ramucirumab,Ramucirumab,False
-29,1,2023-01-01,2023-06-09,159,19,5-fluorouracil+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-30,1,2023-01-01,2023-04-17,106,13,capecitabine+oxaliplatin,CAPOX,False
-30,2,2023-04-17,2023-12-30,257,24,5-fluorouracil+capecitabine+oxaliplatin+regorafenib,CAPOX,False
-30,3,2023-12-30,2024-01-12,13,2,5-fluorouracil+aflibercept,5-FU + aflibercept,False
-30,4,2024-01-12,2024-02-19,38,3,aflibercept+capecitabine+pembrolizumab,Capecitabine + aflibercept,False
-30,5,2024-02-19,2024-03-18,28,3,5-fluorouracil,5-FU,False
-30,6,2024-03-18,2024-03-18,0,1,encorafenib,Other,False
-30,7,2025-01-26,2025-01-26,0,1,5-fluorouracil,5-FU,False
-30,8,2025-03-01,2025-07-09,130,9,oxaliplatin,Other,False
-30,9,2025-07-09,2026-01-30,205,14,oxaliplatin+panitumumab,Panitumumab,False
-31,1,2023-01-01,2023-02-22,52,15,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-31,2,2023-03-17,2023-07-15,120,24,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-31,3,2023-07-31,2023-12-05,127,25,5-fluorouracil+capecitabine+cetuximab+leucovorin+oxaliplatin,FOLFOX + cetuximab,False
-31,4,2023-12-05,2023-12-05,0,1,aflibercept,Aflibercept,False
-31,5,2024-01-20,2024-05-05,106,7,capecitabine+nivolumab,Capecitabine,False
-31,6,2024-06-18,2024-10-24,128,7,5-fluorouracil,5-FU,False
-32,1,2023-01-01,2023-02-26,56,20,5-fluorouracil+encorafenib+irinotecan+leucovorin,FOLFIRI,False
-32,2,2023-02-26,2023-04-04,37,8,5-fluorouracil+encorafenib+irinotecan+leucovorin+ramucirumab,FOLFIRI + ramucirumab,False
-32,3,2023-04-04,2023-04-22,18,5,capecitabine+encorafenib+irinotecan+leucovorin,Other,False
-32,4,2023-05-15,2023-05-29,14,9,5-fluorouracil+encorafenib+irinotecan+leucovorin+panitumumab,FOLFIRI + panitumumab,False
-32,5,2023-06-16,2023-07-01,15,9,5-fluorouracil+encorafenib+irinotecan+leucovorin+pembrolizumab,FOLFIRI,False
-32,6,2023-07-27,2024-06-09,318,20,bevacizumab+panitumumab+pembrolizumab,Bevacizumab + Panitumumab,False
-32,7,2025-01-28,2025-07-02,155,8,bevacizumab+encorafenib,Bevacizumab,False
-32,8,2025-07-02,2025-09-26,86,7,encorafenib+leucovorin,Other,False
-33,1,2023-01-01,2023-03-29,87,19,5-fluorouracil+bevacizumab+irinotecan+leucovorin,FOLFIRI + bevacizumab,False
-33,2,2023-03-29,2023-09-23,178,31,5-fluorouracil+aflibercept+irinotecan+leucovorin,FOLFIRI + aflibercept,False
-33,3,2023-09-23,2024-04-12,202,13,5-fluorouracil+bevacizumab+irinotecan+leucovorin+panitumumab,FOLFIRI + bevacizumab + panitumumab,False
-33,4,2024-04-24,2024-05-29,35,5,bevacizumab+regorafenib,Regorafenib + bevacizumab,False
-33,5,2025-01-09,2025-04-22,103,7,bevacizumab,Bevacizumab,False
-33,6,2025-06-01,2025-11-29,181,10,irinotecan,Other,False
-34,1,2023-01-01,2023-03-31,89,18,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-35,1,2023-01-01,2023-02-01,31,16,5-fluorouracil+aflibercept+leucovorin+oxaliplatin,FOLFOX + aflibercept,False
-35,2,2023-02-17,2023-10-28,253,56,5-fluorouracil+aflibercept+capecitabine+leucovorin+oxaliplatin,FOLFOX + aflibercept,False
-35,3,2023-12-11,2024-06-26,198,13,regorafenib,Regorafenib,False
-35,4,2024-06-26,2024-09-07,73,5,bevacizumab+regorafenib,Regorafenib + bevacizumab,False
-36,1,2023-01-01,2023-03-24,82,27,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-36,2,2023-03-24,2023-11-20,241,61,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+ramucirumab,FOLFOX + ramucirumab,False
-36,3,2024-10-15,2024-11-30,46,4,cisplatin,Other,False
-37,1,2023-01-01,2023-05-19,138,40,5-fluorouracil+leucovorin+oxaliplatin+panitumumab,FOLFOX + panitumumab,False
-37,2,2023-05-19,2023-06-23,35,8,5-fluorouracil+cetuximab+leucovorin+oxaliplatin+panitumumab,FOLFOX + panitumumab + cetuximab,False
-37,3,2023-06-23,2023-07-20,27,9,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+panitumumab,FOLFOX + panitumumab,False
-37,4,2023-07-20,2023-09-16,58,13,5-fluorouracil+leucovorin+oxaliplatin+panitumumab+ramucirumab,FOLFOX + ramucirumab + panitumumab,False
-38,1,2023-01-01,2023-04-28,117,27,5-fluorouracil+leucovorin+nivolumab+oxaliplatin,FOLFOX,False
-38,2,2023-04-28,2023-10-10,165,31,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-39,1,2023-01-01,2023-10-04,276,15,5-fluorouracil+capecitabine,Capecitabine,False
-39,2,2023-11-25,2024-09-03,283,16,cetuximab,Cetuximab,False
-39,3,2024-10-03,2025-04-18,197,13,irinotecan+panitumumab,Panitumumab,False
-39,4,2025-04-18,2025-05-02,14,2,encorafenib+panitumumab,Panitumumab,False
-40,1,2023-01-01,2023-02-26,56,19,5-fluorouracil+leucovorin+oxaliplatin+panitumumab,FOLFOX + panitumumab,False
-40,2,2023-02-26,2023-02-26,0,1,capecitabine,Capecitabine,False
-40,3,2023-02-26,2023-05-04,67,13,5-fluorouracil+leucovorin+oxaliplatin+panitumumab+pembrolizumab,FOLFOX + panitumumab,False
-40,4,2023-06-06,2023-10-14,130,9,capecitabine+encorafenib,Capecitabine,False
-40,5,2023-10-14,2023-11-11,28,3,capecitabine+irinotecan,CAPIRI,False
-40,6,2023-11-11,2023-11-11,0,1,cetuximab,Cetuximab,False
-41,1,2023-01-01,2023-02-09,39,8,bevacizumab+capecitabine,Capecitabine + bevacizumab,False
-41,2,2024-01-22,2024-06-15,145,8,cisplatin,Other,False
-42,1,2023-01-01,2023-07-13,193,37,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-42,2,2023-07-13,2023-09-12,61,13,5-fluorouracil+aflibercept+irinotecan+leucovorin,FOLFIRI + aflibercept,False
-42,3,2023-09-12,2023-11-11,60,11,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-42,4,2023-12-15,2023-12-26,11,2,regorafenib,Regorafenib,False
-42,5,2024-11-15,2025-02-13,90,7,encorafenib,Other,False
-42,6,2025-02-13,2025-10-01,230,14,aflibercept+bevacizumab+encorafenib,Bevacizumab + Aflibercept,False
-43,1,2023-01-01,2023-01-30,29,8,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-43,2,2023-01-30,2023-08-02,184,34,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-43,3,2023-08-02,2023-08-02,0,1,cetuximab,Cetuximab,False
-44,1,2023-01-01,2023-12-13,346,21,5-fluorouracil,5-FU,False
-44,2,2024-01-22,2024-03-03,41,4,encorafenib,Other,False
-44,3,2024-04-12,2024-04-28,16,2,pembrolizumab,Other,False
-44,4,2024-06-12,2024-10-30,140,9,regorafenib,Regorafenib,False
-44,5,2024-10-30,2024-10-30,0,1,panitumumab,Panitumumab,False
-45,1,2023-01-01,2023-06-08,158,44,5-fluorouracil+bevacizumab+leucovorin+oxaliplatin,FOLFOX + bevacizumab,False
-46,1,2023-01-01,2023-01-19,18,6,5-fluorouracil+regorafenib,5-FU,False
-46,2,2023-01-19,2023-03-14,54,7,5-fluorouracil+pembrolizumab+regorafenib,5-FU,False
-46,3,2023-03-14,2023-05-02,49,5,5-fluorouracil+bevacizumab+regorafenib,5-FU + bevacizumab,False
-46,4,2023-05-23,2023-10-12,142,18,5-fluorouracil+capecitabine+regorafenib,Capecitabine,False
-46,5,2023-11-14,2024-01-30,77,5,ramucirumab,Ramucirumab,False
-47,1,2023-01-01,2023-02-27,57,15,5-fluorouracil+cetuximab+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-47,2,2023-02-27,2023-04-13,45,7,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-47,3,2023-05-07,2024-06-17,407,45,5-fluorouracil+capecitabine+cisplatin+irinotecan+leucovorin,FOLFIRI,False
-47,4,2024-06-17,2024-07-08,21,2,aflibercept+cisplatin,Aflibercept,False
-47,5,2024-08-25,2025-02-11,170,9,regorafenib,Regorafenib,False
-47,6,2025-03-19,2025-03-19,0,1,oxaliplatin,Other,False
-47,7,2025-04-04,2025-10-27,206,13,encorafenib+oxaliplatin,Other,False
-48,1,2023-01-01,2023-01-18,17,9,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-48,2,2023-02-01,2023-11-10,282,50,5-fluorouracil+capecitabine+irinotecan+leucovorin+pembrolizumab,FOLFIRI,False
-48,3,2023-12-20,2024-01-25,36,3,oxaliplatin,Other,False
-48,4,2024-01-25,2024-03-27,62,5,encorafenib+oxaliplatin,Other,False
-48,5,2024-03-27,2024-09-07,164,10,oxaliplatin+regorafenib,Regorafenib,False
-48,6,2025-06-08,2025-07-26,48,4,pembrolizumab,Other,False
-48,7,2025-07-26,2025-12-18,145,10,bevacizumab+pembrolizumab,Bevacizumab,False
-49,1,2023-01-01,2023-07-31,211,16,5-fluorouracil+capecitabine+regorafenib,Capecitabine,False
-50,1,2023-01-01,2023-04-24,113,27,5-fluorouracil+leucovorin+oxaliplatin+regorafenib,FOLFOX,False
-50,2,2023-04-24,2024-03-14,325,29,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+regorafenib,FOLFOX,False
-50,3,2024-03-14,2024-08-11,150,11,encorafenib+regorafenib,Regorafenib,False
-50,4,2024-09-20,2025-06-07,260,16,encorafenib+pembrolizumab,Other,False
-51,1,2023-01-01,2023-03-15,73,11,5-fluorouracil+panitumumab,5-FU + panitumumab,False
-51,2,2023-03-15,2023-04-21,37,6,5-fluorouracil+panitumumab+regorafenib,5-FU + panitumumab,False
-51,3,2023-04-21,2024-04-29,374,31,5-fluorouracil+cetuximab+panitumumab+regorafenib,5-FU + panitumumab + cetuximab,False
-51,4,2024-05-24,2024-06-15,22,3,cisplatin+regorafenib,Regorafenib,False
-52,1,2023-01-01,2023-03-13,71,17,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-52,2,2023-03-13,2023-04-03,21,5,5-fluorouracil+capecitabine+encorafenib+irinotecan+leucovorin,FOLFIRI,False
-52,3,2023-05-25,2023-06-29,35,3,pembrolizumab,Other,False
-52,4,2023-06-29,2023-07-26,27,4,encorafenib+panitumumab+pembrolizumab,Panitumumab,False
-53,1,2023-01-01,2023-10-24,296,38,capecitabine+oxaliplatin,CAPOX,False
-54,1,2023-01-01,2023-07-16,196,13,5-fluorouracil+capecitabine+encorafenib,Capecitabine,False
-54,2,2024-03-04,2024-03-04,0,1,capecitabine,Capecitabine,False
-54,3,2024-03-04,2024-03-31,27,2,aflibercept+capecitabine,Capecitabine + aflibercept,False
-54,4,2024-03-31,2024-09-02,155,10,capecitabine+panitumumab,Capecitabine + panitumumab,False
-54,5,2024-09-02,2024-11-03,62,5,capecitabine+nivolumab,Capecitabine,False
-54,6,2024-12-13,2025-04-08,116,8,regorafenib,Regorafenib,False
-55,1,2023-01-01,2023-04-26,115,8,capecitabine,Capecitabine,False
-55,2,2023-05-17,2023-10-13,149,10,5-fluorouracil+capecitabine,Capecitabine,False
-55,3,2023-10-13,2023-10-13,0,1,panitumumab,Panitumumab,False
-55,4,2023-12-05,2024-05-24,171,10,irinotecan,Other,False
-56,1,2023-01-01,2023-06-16,166,33,5-fluorouracil+aflibercept+leucovorin+oxaliplatin,FOLFOX + aflibercept,False
-56,2,2023-06-16,2023-07-08,22,4,capecitabine+leucovorin+oxaliplatin,Other,False
-56,3,2023-07-29,2023-11-05,99,21,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-57,1,2023-01-01,2023-05-15,134,19,5-fluorouracil+panitumumab,5-FU + panitumumab,False
-57,2,2023-05-15,2023-05-15,0,1,capecitabine,Capecitabine,False
-57,3,2023-05-15,2023-08-09,86,11,5-fluorouracil+aflibercept+panitumumab,5-FU + aflibercept + panitumumab,False
-57,4,2023-08-09,2023-09-30,52,5,5-fluorouracil+cisplatin+panitumumab,5-FU + panitumumab,False
-57,5,2023-09-30,2023-09-30,0,1,pembrolizumab,Other,False
-57,6,2023-11-13,2023-11-13,0,1,cetuximab,Cetuximab,False
-57,7,2023-11-24,2024-07-14,233,14,cetuximab+regorafenib,Regorafenib + cetuximab,False
-58,1,2023-01-01,2023-03-13,71,18,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-58,2,2023-04-02,2023-04-02,0,4,5-fluorouracil+irinotecan+leucovorin+panitumumab,FOLFIRI + panitumumab,False
-58,3,2023-05-17,2023-05-17,0,1,nivolumab,Other,False
-58,4,2023-05-17,2023-07-18,62,5,nivolumab+pembrolizumab,Other,False
-58,5,2023-07-18,2024-01-29,195,14,nivolumab+regorafenib,Regorafenib,False
-59,1,2023-01-01,2023-06-18,168,24,5-fluorouracil+capecitabine+oxaliplatin+pembrolizumab,CAPOX,False
-59,2,2023-07-14,2023-09-10,58,9,capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-59,3,2023-09-10,2023-09-10,0,1,regorafenib,Regorafenib,False
-60,1,2023-01-01,2023-05-07,126,27,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-60,2,2023-06-29,2023-08-26,58,4,encorafenib,Other,False
-61,1,2023-01-01,2023-04-16,105,8,capecitabine+pembrolizumab,Capecitabine,False
-61,2,2023-05-12,2023-08-15,95,8,5-fluorouracil+capecitabine+nivolumab,Capecitabine,False
-61,3,2023-08-15,2023-10-11,57,4,capecitabine+ramucirumab,Capecitabine + ramucirumab,False
-61,4,2023-11-15,2024-02-13,90,6,aflibercept,Aflibercept,False
-61,5,2024-02-13,2024-06-02,110,6,aflibercept+irinotecan,Aflibercept,False
-61,6,2024-06-02,2024-07-28,56,5,aflibercept+regorafenib,Regorafenib + aflibercept,False
-62,1,2023-01-01,2023-04-07,96,24,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-62,2,2023-04-18,2023-07-15,88,22,5-fluorouracil+aflibercept+capecitabine+irinotecan+leucovorin,FOLFIRI + aflibercept,False
-62,3,2023-08-10,2023-11-05,87,22,5-fluorouracil+capecitabine+cetuximab+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-63,1,2023-01-01,2023-06-18,168,9,5-fluorouracil,5-FU,False
-63,2,2023-07-31,2023-11-07,99,6,encorafenib,Other,False
-64,1,2023-01-01,2023-04-09,98,22,5-fluorouracil+irinotecan+leucovorin+regorafenib,FOLFIRI,False
-65,1,2023-01-01,2023-06-11,161,18,capecitabine+oxaliplatin,CAPOX,False
-65,2,2023-07-27,2023-07-27,0,1,bevacizumab,Bevacizumab,False
-65,3,2023-07-27,2023-10-27,92,7,bevacizumab+ramucirumab,Bevacizumab + Ramucirumab,False
-66,1,2023-01-01,2023-06-11,161,17,5-fluorouracil+irinotecan+leucovorin+panitumumab,FOLFIRI + panitumumab,False
-66,2,2023-06-11,2023-10-20,131,8,bevacizumab+panitumumab,Bevacizumab + Panitumumab,False
-67,1,2023-01-01,2023-01-24,23,3,5-fluorouracil,5-FU,False
-68,1,2023-01-01,2023-04-04,93,24,5-fluorouracil+bevacizumab+leucovorin+oxaliplatin,FOLFOX + bevacizumab,False
-68,2,2023-05-08,2023-07-13,66,5,capecitabine,Capecitabine,False
-68,3,2023-07-27,2024-04-03,251,14,5-fluorouracil+bevacizumab+capecitabine,Capecitabine + bevacizumab,False
-69,1,2023-01-01,2023-04-18,107,9,5-fluorouracil+capecitabine+panitumumab,Capecitabine + panitumumab,False
-69,2,2023-04-18,2023-09-07,142,10,5-fluorouracil+pembrolizumab,5-FU,False
-69,3,2023-09-07,2023-11-11,65,4,5-fluorouracil+regorafenib,5-FU,False
-70,1,2023-01-01,2023-07-29,209,12,capecitabine,Capecitabine,False
-70,2,2023-08-25,2023-09-21,27,2,bevacizumab,Bevacizumab,False
-70,3,2023-09-21,2024-02-10,142,9,bevacizumab+encorafenib,Bevacizumab,False
-71,1,2023-01-01,2023-07-14,194,39,5-fluorouracil+capecitabine+encorafenib+leucovorin+oxaliplatin,FOLFOX,False
-71,2,2023-08-23,2024-01-16,146,9,aflibercept,Aflibercept,False
-71,3,2024-10-15,2025-07-27,285,16,encorafenib+ramucirumab,Ramucirumab,False
-72,1,2023-01-01,2023-02-01,31,5,capecitabine+oxaliplatin,CAPOX,False
-72,2,2023-02-01,2023-04-17,75,10,5-fluorouracil+capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-72,3,2023-04-17,2023-05-05,18,3,capecitabine+cisplatin+oxaliplatin,CAPOX,False
-72,4,2023-05-24,2023-09-05,104,14,capecitabine+leucovorin+oxaliplatin,Other,False
-72,5,2023-09-05,2023-10-08,33,5,5-fluorouracil+capecitabine+oxaliplatin,CAPOX,False
-73,1,2023-01-01,2023-02-09,39,13,5-fluorouracil+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-73,2,2023-03-07,2023-07-11,126,25,5-fluorouracil+bevacizumab+irinotecan+leucovorin,FOLFIRI + bevacizumab,False
-73,3,2023-08-19,2024-02-21,186,11,pembrolizumab,Other,False
-73,4,2024-02-21,2024-03-17,25,2,encorafenib+pembrolizumab,Other,False
-73,5,2024-04-10,2024-08-21,133,8,cetuximab,Cetuximab,False
-73,6,2024-09-21,2024-12-03,73,5,capecitabine,Capecitabine,False
-74,1,2023-01-01,2023-05-09,128,13,capecitabine+oxaliplatin,CAPOX,False
-74,2,2023-05-09,2023-06-20,42,5,5-fluorouracil+aflibercept+oxaliplatin,5-FU + aflibercept,False
-74,3,2023-06-20,2023-08-29,70,11,capecitabine+oxaliplatin,CAPOX,False
-74,4,2023-08-29,2023-09-21,23,3,capecitabine+oxaliplatin+pembrolizumab,CAPOX,False
-74,5,2023-09-21,2023-10-07,16,3,bevacizumab+capecitabine+oxaliplatin,CAPOX + bevacizumab,False
-75,1,2023-01-01,2023-02-09,39,16,5-fluorouracil+irinotecan+leucovorin+pembrolizumab,FOLFIRI,False
-75,2,2023-02-09,2023-08-08,180,28,5-fluorouracil+irinotecan+leucovorin+ramucirumab,FOLFIRI + ramucirumab,False
-75,3,2024-03-10,2024-06-20,102,17,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-75,4,2024-06-20,2024-06-20,0,2,capecitabine+ramucirumab,Capecitabine + ramucirumab,False
-75,5,2024-07-28,2024-08-28,31,3,cisplatin,Other,False
-75,6,2024-08-28,2025-02-09,165,8,cisplatin+encorafenib,Other,False
-75,7,2025-03-13,2026-02-17,341,20,encorafenib+panitumumab,Panitumumab,False
-76,1,2023-01-01,2023-04-28,117,28,5-fluorouracil+aflibercept+leucovorin+oxaliplatin,FOLFOX + aflibercept,False
-76,2,2023-06-02,2023-07-09,37,4,bevacizumab,Bevacizumab,False
-76,3,2023-07-09,2024-01-26,201,13,5-fluorouracil+aflibercept+bevacizumab,5-FU + bevacizumab + aflibercept,False
-77,1,2023-01-01,2023-04-13,102,8,5-fluorouracil+bevacizumab,5-FU + bevacizumab,False
-77,2,2023-04-27,2023-11-03,190,10,5-fluorouracil+bevacizumab+capecitabine,Capecitabine + bevacizumab,False
-77,3,2023-12-03,2024-05-20,169,10,bevacizumab+regorafenib,Regorafenib + bevacizumab,False
-78,1,2023-01-01,2023-03-27,85,7,5-fluorouracil+capecitabine,Capecitabine,False
-79,1,2023-01-01,2023-04-11,100,23,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-79,2,2023-04-11,2023-05-18,37,7,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-80,1,2023-01-01,2023-06-15,165,36,5-fluorouracil+irinotecan+leucovorin+panitumumab,FOLFIRI + panitumumab,False
-80,2,2023-06-15,2023-08-21,67,11,5-fluorouracil+capecitabine+irinotecan+leucovorin+oxaliplatin,FOLFOXIRI,False
-80,3,2023-08-21,2023-10-21,61,10,5-fluorouracil+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-80,4,2023-12-09,2024-09-30,296,16,nivolumab+oxaliplatin,Other,False
-80,5,2024-09-30,2024-11-12,43,3,nivolumab+pembrolizumab,Other,False
-81,1,2023-01-01,2023-02-16,46,14,bevacizumab+capecitabine+oxaliplatin,CAPOX + bevacizumab,False
-81,2,2023-02-16,2023-07-31,165,28,5-fluorouracil+bevacizumab+capecitabine+oxaliplatin,CAPOX + bevacizumab,False
-82,1,2023-01-01,2023-02-26,56,11,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-82,2,2023-02-26,2023-09-14,200,38,5-fluorouracil+capecitabine+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-83,1,2023-01-01,2023-02-03,33,12,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-83,2,2023-02-14,2023-06-09,115,21,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,FOLFOX,False
-83,3,2023-07-18,2023-09-15,59,4,encorafenib,Other,False
-83,4,2023-11-03,2024-06-12,222,12,oxaliplatin,Other,False
-84,1,2023-01-01,2023-05-05,124,21,capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-84,2,2023-05-05,2023-06-28,54,7,capecitabine+nivolumab+oxaliplatin,CAPOX,False
-84,3,2023-08-17,2023-09-23,37,3,bevacizumab,Bevacizumab,False
-84,4,2023-09-23,2023-10-30,37,4,bevacizumab+cisplatin+panitumumab,Bevacizumab + Panitumumab,False
-84,5,2023-12-07,2024-09-21,289,18,encorafenib+nivolumab,Other,False
-85,1,2023-01-01,2023-02-17,47,8,5-fluorouracil+panitumumab,5-FU + panitumumab,False
-85,2,2023-02-17,2023-03-31,42,5,5-fluorouracil+encorafenib+panitumumab,5-FU + panitumumab,False
-85,3,2023-03-31,2023-03-31,0,1,regorafenib,Regorafenib,False
-85,4,2023-05-16,2023-07-07,52,4,bevacizumab,Bevacizumab,False
-85,5,2023-07-07,2023-07-30,23,3,aflibercept+bevacizumab+panitumumab,Bevacizumab + Aflibercept + Panitumumab,False
-86,1,2023-01-01,2023-05-16,135,24,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-86,2,2023-06-30,2023-07-23,23,2,encorafenib,Other,False
-87,1,2023-01-01,2023-06-03,153,23,capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-87,2,2023-06-03,2023-08-17,75,10,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-87,3,2023-08-17,2023-11-14,89,12,5-fluorouracil+capecitabine+oxaliplatin+panitumumab,CAPOX + panitumumab,False
-87,4,2023-12-20,2024-10-13,298,18,cisplatin,Other,False
-88,1,2023-01-01,2023-05-27,146,29,5-fluorouracil+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-88,2,2023-05-27,2023-08-13,78,15,5-fluorouracil+encorafenib+irinotecan+leucovorin,FOLFIRI,False
-88,3,2023-08-13,2023-08-13,0,1,regorafenib,Regorafenib,False
-88,4,2023-09-19,2024-08-20,336,19,encorafenib+pembrolizumab,Other,False
-89,1,2023-01-01,2023-01-25,24,8,5-fluorouracil+panitumumab,5-FU + panitumumab,False
-89,2,2023-01-25,2023-01-25,0,1,pembrolizumab,Other,False
-89,3,2023-03-01,2023-11-01,245,14,aflibercept,Aflibercept,False
-90,1,2023-01-01,2023-02-20,50,14,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-90,2,2023-02-20,2023-06-27,127,23,5-fluorouracil+aflibercept+capecitabine+leucovorin+oxaliplatin,FOLFOX + aflibercept,False
-90,3,2023-07-28,2023-07-28,0,1,irinotecan,Other,False
-90,4,2023-07-28,2023-10-21,85,6,bevacizumab+irinotecan,Bevacizumab,False
-90,5,2023-10-21,2023-11-12,22,2,irinotecan+leucovorin,Other,False
-90,6,2023-11-12,2024-01-12,61,4,irinotecan+ramucirumab,Ramucirumab,False
-91,1,2023-01-01,2023-03-20,78,21,capecitabine+oxaliplatin+ramucirumab,CAPOX + ramucirumab,False
-91,2,2023-04-01,2023-06-18,78,16,capecitabine+oxaliplatin+panitumumab+ramucirumab,CAPOX + ramucirumab + panitumumab,False
-91,3,2023-07-05,2023-09-10,67,12,capecitabine+cetuximab+oxaliplatin+ramucirumab,CAPOX + ramucirumab + cetuximab,False
-91,4,2023-09-10,2023-10-02,22,4,5-fluorouracil+capecitabine+oxaliplatin+ramucirumab,CAPOX + ramucirumab,False
-91,5,2023-10-17,2023-11-10,24,7,5-fluorouracil+capecitabine+nivolumab+oxaliplatin+ramucirumab,CAPOX + ramucirumab,False
-91,6,2023-12-24,2024-07-06,195,12,aflibercept,Aflibercept,False
-91,7,2024-07-06,2025-06-28,357,20,bevacizumab+ramucirumab,Bevacizumab + Ramucirumab,False
-91,8,2025-08-13,2026-06-23,314,18,bevacizumab+encorafenib,Bevacizumab,False
-92,1,2023-01-01,2023-05-14,133,29,5-fluorouracil+capecitabine+irinotecan+leucovorin+nivolumab,FOLFIRI,False
-92,2,2023-05-14,2023-08-11,89,15,5-fluorouracil+irinotecan+leucovorin+oxaliplatin,FOLFOXIRI,False
-92,3,2023-08-11,2023-10-18,68,13,5-fluorouracil+irinotecan+leucovorin+regorafenib,FOLFIRI,False
-92,4,2023-10-18,2023-11-24,37,7,5-fluorouracil+irinotecan+leucovorin+ramucirumab,FOLFIRI + ramucirumab,False
-93,1,2023-01-01,2023-01-24,23,9,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-93,2,2023-03-12,2023-10-27,229,16,encorafenib+regorafenib,Regorafenib,False
-93,3,2023-11-22,2024-05-16,176,10,cisplatin,Other,False
-93,4,2024-05-16,2024-06-07,22,3,cisplatin+pembrolizumab,Other,False
-94,1,2023-01-01,2023-03-22,80,20,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-94,2,2023-03-22,2023-09-28,190,34,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-95,1,2023-01-01,2023-04-27,116,24,capecitabine+encorafenib+oxaliplatin,CAPOX,False
-95,2,2023-04-27,2023-07-23,87,19,bevacizumab+capecitabine+encorafenib+oxaliplatin,CAPOX + bevacizumab,False
-95,3,2023-09-08,2023-09-29,21,2,cisplatin,Other,False
-95,4,2023-09-29,2024-05-02,216,12,cisplatin+panitumumab,Panitumumab,False
-96,1,2023-01-01,2023-02-09,39,8,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-96,2,2023-02-09,2023-06-02,113,19,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-96,3,2023-06-02,2023-08-25,84,16,5-fluorouracil+cetuximab+irinotecan+leucovorin,FOLFIRI + cetuximab,False
-96,4,2023-08-25,2023-12-04,101,16,5-fluorouracil+capecitabine+irinotecan+leucovorin,FOLFIRI,False
-97,1,2023-01-01,2023-05-05,124,23,5-fluorouracil+leucovorin+oxaliplatin,FOLFOX,False
-97,2,2023-05-05,2023-11-03,182,32,5-fluorouracil+capecitabine+encorafenib+leucovorin+oxaliplatin,FOLFOX,False
-97,3,2023-12-08,2024-01-28,51,4,irinotecan,Other,False
-97,4,2024-03-11,2024-08-31,173,10,capecitabine,Capecitabine,False
-97,5,2024-09-20,2024-10-16,26,2,5-fluorouracil+capecitabine,Capecitabine,False
-98,1,2023-01-01,2023-01-31,30,15,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-99,1,2023-01-01,2023-05-16,135,26,5-fluorouracil+irinotecan+leucovorin,FOLFIRI,False
-99,2,2023-05-16,2024-07-08,419,36,5-fluorouracil+aflibercept+capecitabine+irinotecan+leucovorin,FOLFIRI + aflibercept,False
-100,1,2023-01-01,2023-03-09,67,10,capecitabine+oxaliplatin,CAPOX,False
-100,2,2023-03-09,2023-05-26,78,11,capecitabine+leucovorin+oxaliplatin,Other,False
-100,3,2023-07-15,2024-03-15,244,13,5-fluorouracil,5-FU,False
+patientid,line_of_therapy,line_start_date,line_end_date,duration_days,num_administrations,drugs,drug_admin_counts,regimen_type,maintenance_flag
+1,1,2023-01-01,2023-04-05,94,14,capecitabine+oxaliplatin,"capecitabine:7, oxaliplatin:7",CAPOX,False
+2,1,2023-01-01,2023-08-18,229,42,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:14, irinotecan:14, 5-fluorouracil:13, capecitabine:1",FOLFIRI,False
+3,1,2023-01-01,2023-04-09,98,18,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,"leucovorin:6, oxaliplatin:6, 5-fluorouracil:5, capecitabine:1",FOLFOX,False
+4,1,2023-01-01,2023-06-17,167,30,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:10, irinotecan:10, 5-fluorouracil:9, capecitabine:1",FOLFIRI,False
+4,2,2023-07-03,2023-08-13,41,13,5-fluorouracil+capecitabine+encorafenib+irinotecan+leucovorin,"irinotecan:4, leucovorin:4, 5-fluorouracil:3, encorafenib:1, capecitabine:1",Encorafenib,False
+5,1,2023-01-01,2023-03-21,79,5,5-fluorouracil,5-fluorouracil:5,5-FU,False
+5,2,2023-04-18,2023-06-30,73,6,encorafenib+pembrolizumab,"encorafenib:5, pembrolizumab:1",Encorafenib + Pembrolizumab,False
+5,3,2023-07-21,2024-02-02,196,14,aflibercept+encorafenib+leucovorin,"encorafenib:12, leucovorin:1, aflibercept:1",Aflibercept + Encorafenib,False
+5,4,2024-02-27,2024-03-29,31,4,bevacizumab+encorafenib,"encorafenib:3, bevacizumab:1",Bevacizumab + Encorafenib,False
+5,5,2024-04-29,2024-07-16,78,6,aflibercept+encorafenib,"aflibercept:5, encorafenib:1",Aflibercept + Encorafenib,False
+5,6,2024-07-31,2024-10-05,66,5,aflibercept+irinotecan,"aflibercept:4, irinotecan:1",Aflibercept,False
+5,7,2024-11-21,2025-08-04,256,17,panitumumab+pembrolizumab+regorafenib,"regorafenib:15, panitumumab:1, pembrolizumab:1",Panitumumab + Pembrolizumab + Regorafenib,False
+6,1,2023-01-01,2023-05-21,140,12,5-fluorouracil+capecitabine+encorafenib+oxaliplatin+pembrolizumab,"encorafenib:5, oxaliplatin:3, capecitabine:2, 5-fluorouracil:1, pembrolizumab:1",Encorafenib + Pembrolizumab,False
+6,2,2023-06-02,2023-07-24,52,5,cetuximab+encorafenib,"encorafenib:4, cetuximab:1",Cetuximab + Encorafenib,False
+7,1,2023-01-01,2023-10-12,284,49,5-fluorouracil+bevacizumab+capecitabine+irinotecan+leucovorin,"leucovorin:16, irinotecan:16, 5-fluorouracil:15, bevacizumab:1, capecitabine:1",FOLFIRI + bevacizumab,False
+7,2,2023-11-27,2024-02-14,79,5,cisplatin,cisplatin:5,Cisplatin,False
+8,1,2023-01-01,2023-01-25,24,4,capecitabine,capecitabine:4,Capecitabine,False
+9,1,2023-01-01,2023-10-06,278,49,5-fluorouracil+capecitabine+cetuximab+leucovorin+oxaliplatin,"leucovorin:16, oxaliplatin:16, 5-fluorouracil:14, capecitabine:2, cetuximab:1",FOLFOX + cetuximab,False
+9,2,2023-11-27,2024-04-04,129,9,cisplatin+leucovorin,"cisplatin:8, leucovorin:1",Cisplatin + Leucovorin,False
+10,1,2023-01-01,2023-11-09,312,41,5-fluorouracil+capecitabine+oxaliplatin+ramucirumab,"oxaliplatin:20, capecitabine:19, ramucirumab:1, 5-fluorouracil:1",CAPOX + ramucirumab,False
+10,2,2023-12-20,2024-04-25,127,8,bevacizumab+encorafenib,"bevacizumab:7, encorafenib:1",Bevacizumab + Encorafenib,False
+10,3,2024-06-06,2024-12-18,195,13,regorafenib,regorafenib:13,Regorafenib,False
+10,4,2025-01-03,2025-03-15,71,7,aflibercept+regorafenib,"regorafenib:6, aflibercept:1",Aflibercept + Regorafenib,False
+10,5,2025-04-26,2025-12-08,226,13,5-fluorouracil+capecitabine,"5-fluorouracil:10, capecitabine:3",5-FU,False
+11,1,2023-01-01,2023-03-08,66,21,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:7, irinotecan:7, 5-fluorouracil:6, capecitabine:1",FOLFIRI,False
+11,2,2023-04-02,2023-07-19,108,23,5-fluorouracil+irinotecan+leucovorin+regorafenib,"irinotecan:7, 5-fluorouracil:7, leucovorin:7, regorafenib:2",Regorafenib,False
+12,1,2023-01-01,2023-03-25,83,18,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:6, irinotecan:6, 5-fluorouracil:5, capecitabine:1",FOLFIRI,False
+13,1,2023-01-01,2023-09-04,246,33,5-fluorouracil+capecitabine+oxaliplatin+ramucirumab,"oxaliplatin:9, ramucirumab:9, capecitabine:8, 5-fluorouracil:7",CAPOX + ramucirumab,False
+13,2,2023-10-10,2024-01-20,102,6,irinotecan,irinotecan:6,Irinotecan,False
+14,1,2023-01-01,2023-07-25,205,23,5-fluorouracil+bevacizumab+capecitabine+cetuximab,"cetuximab:11, 5-fluorouracil:9, capecitabine:2, bevacizumab:1",5-FU + bevacizumab + cetuximab,False
+14,2,2023-08-15,2023-09-14,30,7,5-fluorouracil+capecitabine+cetuximab+encorafenib,"cetuximab:3, 5-fluorouracil:2, encorafenib:1, capecitabine:1",Cetuximab + Encorafenib,False
+14,3,2023-10-08,2023-11-01,24,7,5-fluorouracil+bevacizumab+capecitabine+cetuximab,"cetuximab:3, 5-fluorouracil:2, bevacizumab:1, capecitabine:1",5-FU + bevacizumab + cetuximab,False
+14,4,2023-12-10,2024-05-20,162,9,aflibercept,aflibercept:9,Aflibercept,False
+15,1,2023-01-01,2024-07-04,550,85,5-fluorouracil+capecitabine+cetuximab+leucovorin+nivolumab+oxaliplatin+regorafenib,"regorafenib:19, leucovorin:18, oxaliplatin:18, 5-fluorouracil:15, nivolumab:11, capecitabine:3, cetuximab:1",Cetuximab + Nivolumab + Regorafenib,False
+15,2,2024-07-19,2025-06-03,319,20,encorafenib+nivolumab+panitumumab,"panitumumab:15, nivolumab:4, encorafenib:1",Panitumumab + Encorafenib + Nivolumab,False
+16,1,2023-01-01,2023-04-07,96,29,5-fluorouracil+encorafenib+irinotecan+leucovorin+ramucirumab,"5-fluorouracil:7, leucovorin:7, irinotecan:7, encorafenib:7, ramucirumab:1",Ramucirumab + Encorafenib,False
+17,1,2023-01-01,2023-03-17,75,18,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:6, irinotecan:6, 5-fluorouracil:5, capecitabine:1",FOLFIRI,False
+17,2,2023-03-29,2023-07-16,109,25,5-fluorouracil+irinotecan+leucovorin+oxaliplatin,"5-fluorouracil:8, leucovorin:8, irinotecan:8, oxaliplatin:1",FOLFOXIRI,False
+17,3,2024-05-19,2024-07-17,59,5,5-fluorouracil+bevacizumab+irinotecan+leucovorin,"bevacizumab:2, 5-fluorouracil:1, leucovorin:1, irinotecan:1",FOLFIRI + bevacizumab,False
+18,1,2023-01-01,2024-11-04,673,51,5-fluorouracil+bevacizumab+capecitabine+leucovorin+oxaliplatin+ramucirumab,"ramucirumab:17, capecitabine:11, 5-fluorouracil:8, leucovorin:7, oxaliplatin:7, bevacizumab:1",CAPOX + bevacizumab + ramucirumab,False
+18,2,2024-12-08,2025-03-24,106,7,regorafenib,regorafenib:7,Regorafenib,False
+19,1,2023-01-01,2023-07-01,181,24,5-fluorouracil+capecitabine+oxaliplatin,"oxaliplatin:12, capecitabine:11, 5-fluorouracil:1",CAPOX,False
+19,2,2023-07-11,2023-10-18,99,16,aflibercept+capecitabine+leucovorin+oxaliplatin,"oxaliplatin:7, capecitabine:7, leucovorin:1, aflibercept:1",CAPOX + aflibercept,False
+19,3,2023-11-18,2024-03-06,109,9,nivolumab+panitumumab+regorafenib,"panitumumab:7, regorafenib:1, nivolumab:1",Panitumumab + Nivolumab + Regorafenib,False
+19,4,2024-04-21,2024-10-27,189,12,cetuximab+cisplatin,"cisplatin:11, cetuximab:1",Cetuximab,False
+19,5,2024-11-08,2024-12-06,28,3,5-fluorouracil+bevacizumab+cisplatin,"bevacizumab:1, cisplatin:1, 5-fluorouracil:1",5-FU + bevacizumab,False
+19,6,2024-12-25,2025-06-01,158,12,5-fluorouracil+capecitabine,"capecitabine:8, 5-fluorouracil:4",Capecitabine,False
+20,1,2023-01-01,2023-06-08,158,33,5-fluorouracil+leucovorin+oxaliplatin,"5-fluorouracil:11, leucovorin:11, oxaliplatin:11",FOLFOX,False
+20,2,2023-07-21,2024-03-06,229,15,bevacizumab+ramucirumab,"ramucirumab:14, bevacizumab:1",Bevacizumab + Ramucirumab,False
+21,1,2023-01-01,2023-08-05,216,40,5-fluorouracil+bevacizumab+capecitabine+oxaliplatin+ramucirumab,"oxaliplatin:13, ramucirumab:13, capecitabine:11, 5-fluorouracil:2, bevacizumab:1",CAPOX + bevacizumab + ramucirumab,False
+21,2,2023-08-27,2023-09-15,19,7,aflibercept+capecitabine+oxaliplatin+ramucirumab,"capecitabine:2, oxaliplatin:2, ramucirumab:2, aflibercept:1",CAPOX + aflibercept + ramucirumab,False
+22,1,2023-01-01,2023-07-04,184,13,capecitabine,capecitabine:13,Capecitabine,False
+22,2,2024-07-10,2024-08-05,26,3,aflibercept+pembrolizumab,"aflibercept:2, pembrolizumab:1",Aflibercept + Pembrolizumab,False
+23,1,2023-01-01,2023-01-20,19,12,5-fluorouracil+bevacizumab+irinotecan+leucovorin,"5-fluorouracil:3, leucovorin:3, irinotecan:3, bevacizumab:3",FOLFIRI + bevacizumab,False
+24,1,2023-01-01,2023-11-23,326,22,5-fluorouracil+bevacizumab+pembrolizumab+regorafenib,"5-fluorouracil:11, pembrolizumab:9, regorafenib:1, bevacizumab:1",Bevacizumab + Pembrolizumab + Regorafenib,False
+24,2,2023-12-13,2023-12-13,0,2,oxaliplatin+pembrolizumab,"oxaliplatin:1, pembrolizumab:1",Pembrolizumab,False
+25,1,2023-01-01,2023-04-21,110,16,5-fluorouracil+capecitabine+oxaliplatin,"oxaliplatin:8, capecitabine:7, 5-fluorouracil:1",CAPOX,False
+25,2,2023-05-02,2023-10-09,160,22,5-fluorouracil+capecitabine+encorafenib+oxaliplatin+panitumumab,"oxaliplatin:10, capecitabine:9, encorafenib:1, 5-fluorouracil:1, panitumumab:1",Panitumumab + Encorafenib,False
+25,3,2023-11-13,2024-03-11,119,8,irinotecan,irinotecan:8,Irinotecan,False
+25,4,2024-03-29,2024-03-29,0,2,cisplatin+irinotecan,"cisplatin:1, irinotecan:1",Irinotecan + Cisplatin,False
+25,5,2025-01-15,2025-08-28,225,13,oxaliplatin,oxaliplatin:13,Oxaliplatin,False
+26,1,2023-01-01,2023-04-13,102,14,aflibercept+capecitabine+oxaliplatin,"oxaliplatin:6, capecitabine:5, aflibercept:3",CAPOX + aflibercept,False
+27,1,2023-01-01,2023-07-30,210,42,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:14, leucovorin:14, irinotecan:14",FOLFIRI,False
+27,2,2023-08-24,2023-11-20,88,8,5-fluorouracil+bevacizumab+encorafenib+irinotecan+leucovorin,"encorafenib:4, bevacizumab:1, irinotecan:1, leucovorin:1, 5-fluorouracil:1",Bevacizumab + Encorafenib,False
+27,3,2023-12-22,2024-04-13,113,8,cetuximab,cetuximab:8,Cetuximab,False
+28,1,2023-01-01,2023-04-17,106,24,5-fluorouracil+leucovorin+oxaliplatin,"5-fluorouracil:8, leucovorin:8, oxaliplatin:8",FOLFOX,False
+29,1,2023-01-01,2023-11-12,315,68,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+ramucirumab,"leucovorin:17, oxaliplatin:17, ramucirumab:17, 5-fluorouracil:14, capecitabine:3",FOLFOX + ramucirumab,False
+30,1,2023-01-01,2023-10-20,292,52,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+ramucirumab,"leucovorin:17, oxaliplatin:17, 5-fluorouracil:15, capecitabine:2, ramucirumab:1",FOLFOX + ramucirumab,False
+30,2,2023-11-30,2024-02-13,75,6,5-fluorouracil+irinotecan,"irinotecan:5, 5-fluorouracil:1",FOLFIRI,False
+30,3,2024-03-13,2024-07-19,128,7,cetuximab+irinotecan,"irinotecan:5, cetuximab:2",Cetuximab,False
+30,4,2024-07-31,2024-11-07,99,7,irinotecan+regorafenib,"irinotecan:6, regorafenib:1",Regorafenib,False
+31,1,2023-01-01,2023-03-10,68,18,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:6, leucovorin:6, irinotecan:6",FOLFIRI,False
+31,2,2023-04-17,2023-09-13,149,12,aflibercept+oxaliplatin+ramucirumab,"oxaliplatin:10, aflibercept:1, ramucirumab:1",Aflibercept + Ramucirumab,False
+31,3,2023-11-02,2024-03-20,139,8,bevacizumab,bevacizumab:8,Bevacizumab,False
+31,4,2024-04-14,2024-08-01,109,8,5-fluorouracil+bevacizumab,"bevacizumab:7, 5-fluorouracil:1",5-FU + bevacizumab,False
+32,1,2023-01-01,2023-11-04,307,38,5-fluorouracil+aflibercept+capecitabine+oxaliplatin+pembrolizumab,"oxaliplatin:18, capecitabine:16, 5-fluorouracil:2, pembrolizumab:1, aflibercept:1",Aflibercept + Pembrolizumab,False
+32,2,2024-07-13,2025-01-27,198,14,encorafenib+panitumumab+pembrolizumab,"encorafenib:12, pembrolizumab:1, panitumumab:1",Panitumumab + Encorafenib + Pembrolizumab,False
+32,3,2025-02-20,2026-01-17,331,22,cetuximab+nivolumab+ramucirumab,"cetuximab:20, ramucirumab:1, nivolumab:1",Ramucirumab + Cetuximab + Nivolumab,False
+33,1,2023-01-01,2023-07-10,190,31,5-fluorouracil+bevacizumab+capecitabine+irinotecan+leucovorin,"leucovorin:10, irinotecan:10, 5-fluorouracil:9, capecitabine:1, bevacizumab:1",FOLFIRI + bevacizumab,False
+34,1,2023-01-01,2023-08-18,229,29,5-fluorouracil+capecitabine+oxaliplatin+regorafenib,"oxaliplatin:14, capecitabine:12, 5-fluorouracil:2, regorafenib:1",Regorafenib,False
+34,2,2023-08-29,2024-02-07,162,16,bevacizumab+capecitabine+cetuximab+nivolumab+oxaliplatin,"capecitabine:6, oxaliplatin:6, nivolumab:2, bevacizumab:1, cetuximab:1",Bevacizumab + Cetuximab + Nivolumab,False
+34,3,2025-01-04,2025-02-28,55,5,capecitabine+encorafenib,"capecitabine:4, encorafenib:1",Encorafenib,False
+35,1,2023-01-01,2023-07-12,192,26,5-fluorouracil+capecitabine+oxaliplatin,"oxaliplatin:13, capecitabine:12, 5-fluorouracil:1",CAPOX,False
+35,2,2023-08-25,2023-10-04,40,4,panitumumab+ramucirumab,"ramucirumab:3, panitumumab:1",Ramucirumab + Panitumumab,False
+35,3,2023-10-31,2024-03-21,142,10,aflibercept+ramucirumab,"ramucirumab:9, aflibercept:1",Aflibercept + Ramucirumab,False
+35,4,2024-04-27,2024-08-05,100,7,encorafenib,encorafenib:7,Encorafenib,False
+36,1,2023-01-01,2023-05-27,146,23,5-fluorouracil+capecitabine+oxaliplatin+pembrolizumab,"oxaliplatin:11, capecitabine:10, 5-fluorouracil:1, pembrolizumab:1",Pembrolizumab,False
+37,1,2023-01-01,2023-12-03,336,66,5-fluorouracil+capecitabine+oxaliplatin+regorafenib,"oxaliplatin:22, regorafenib:22, capecitabine:19, 5-fluorouracil:3",Regorafenib,False
+38,1,2023-01-01,2023-11-09,312,55,5-fluorouracil+capecitabine+irinotecan+leucovorin+pembrolizumab,"leucovorin:18, irinotecan:18, 5-fluorouracil:14, capecitabine:4, pembrolizumab:1",Pembrolizumab,False
+39,1,2023-01-01,2023-08-05,216,48,5-fluorouracil+aflibercept+capecitabine+leucovorin+oxaliplatin,"leucovorin:12, oxaliplatin:12, aflibercept:12, 5-fluorouracil:10, capecitabine:2",FOLFOX + aflibercept,False
+39,2,2024-07-15,2025-07-01,351,18,5-fluorouracil+capecitabine+cisplatin,"cisplatin:11, 5-fluorouracil:5, capecitabine:2",5-FU,False
+39,3,2025-07-22,2025-07-22,0,2,5-fluorouracil+ramucirumab,"ramucirumab:1, 5-fluorouracil:1",5-FU + ramucirumab,False
+40,1,2023-01-01,2023-06-01,151,41,5-fluorouracil+cetuximab+encorafenib+irinotecan+leucovorin,"5-fluorouracil:10, leucovorin:10, irinotecan:10, encorafenib:10, cetuximab:1",Cetuximab + Encorafenib,False
+40,2,2023-06-13,2023-12-03,173,45,5-fluorouracil+capecitabine+encorafenib+irinotecan+leucovorin+regorafenib,"encorafenib:11, leucovorin:11, irinotecan:11, 5-fluorouracil:9, capecitabine:2, regorafenib:1",Encorafenib + Regorafenib,False
+41,1,2023-01-01,2023-03-02,60,19,5-fluorouracil+irinotecan+leucovorin+oxaliplatin,"5-fluorouracil:6, leucovorin:6, irinotecan:6, oxaliplatin:1",FOLFOXIRI,False
+42,1,2023-01-01,2023-10-27,299,73,5-fluorouracil+encorafenib+leucovorin+oxaliplatin+panitumumab,"5-fluorouracil:18, leucovorin:18, oxaliplatin:18, encorafenib:18, panitumumab:1",Panitumumab + Encorafenib,False
+42,2,2023-11-22,2023-11-22,0,5,5-fluorouracil+cetuximab+encorafenib+leucovorin+oxaliplatin,"cetuximab:1, leucovorin:1, oxaliplatin:1, encorafenib:1, 5-fluorouracil:1",Cetuximab + Encorafenib,False
+42,3,2024-01-12,2024-02-17,36,4,bevacizumab+ramucirumab,"bevacizumab:3, ramucirumab:1",Bevacizumab + Ramucirumab,False
+43,1,2023-01-01,2023-07-06,186,23,5-fluorouracil+capecitabine+oxaliplatin+regorafenib,"oxaliplatin:11, capecitabine:9, 5-fluorouracil:2, regorafenib:1",Regorafenib,False
+43,2,2023-08-11,2023-11-07,88,6,cisplatin,cisplatin:6,Cisplatin,False
+43,3,2023-11-17,2024-09-18,306,19,cetuximab+cisplatin+panitumumab,"cisplatin:14, cetuximab:4, panitumumab:1",Cetuximab + Panitumumab,False
+44,1,2023-01-01,2023-09-16,258,48,5-fluorouracil+leucovorin+oxaliplatin,"5-fluorouracil:16, leucovorin:16, oxaliplatin:16",FOLFOX,False
+44,2,2023-10-26,2024-07-11,259,15,5-fluorouracil+capecitabine,"capecitabine:12, 5-fluorouracil:3",Capecitabine,False
+45,1,2023-01-01,2023-11-16,319,54,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:18, irinotecan:18, 5-fluorouracil:16, capecitabine:2",FOLFIRI,False
+45,2,2025-08-02,2025-09-12,41,10,5-fluorouracil+irinotecan+leucovorin+regorafenib,"irinotecan:3, 5-fluorouracil:3, leucovorin:3, regorafenib:1",Regorafenib,False
+45,3,2026-04-06,2026-06-08,63,15,5-fluorouracil+irinotecan+leucovorin,"irinotecan:5, leucovorin:5, 5-fluorouracil:5",FOLFIRI,False
+45,4,2026-07-05,2026-08-16,42,11,5-fluorouracil+capecitabine+cetuximab+cisplatin+irinotecan+leucovorin,"leucovorin:3, irinotecan:3, 5-fluorouracil:2, cisplatin:1, cetuximab:1, capecitabine:1",FOLFIRI + cetuximab,False
+46,1,2023-01-01,2023-07-05,185,41,5-fluorouracil+leucovorin+oxaliplatin+regorafenib,"5-fluorouracil:13, leucovorin:13, oxaliplatin:13, regorafenib:2",Regorafenib,False
+46,2,2023-07-22,2023-07-22,0,4,5-fluorouracil+irinotecan+leucovorin+oxaliplatin,"irinotecan:1, leucovorin:1, oxaliplatin:1, 5-fluorouracil:1",FOLFOXIRI,False
+47,1,2023-01-01,2023-07-27,207,40,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab,"5-fluorouracil:13, leucovorin:13, oxaliplatin:13, ramucirumab:1",FOLFOX + ramucirumab,False
+47,2,2023-09-06,2024-07-08,306,16,regorafenib,regorafenib:16,Regorafenib,False
+47,3,2024-08-24,2025-02-04,164,12,5-fluorouracil+aflibercept+capecitabine,"capecitabine:9, 5-fluorouracil:2, aflibercept:1",Capecitabine + aflibercept,False
+47,4,2025-02-27,2025-04-29,61,7,5-fluorouracil+bevacizumab+capecitabine,"capecitabine:4, 5-fluorouracil:2, bevacizumab:1",Capecitabine + bevacizumab,False
+48,1,2023-01-01,2023-08-07,218,27,5-fluorouracil+capecitabine+encorafenib+ramucirumab,"ramucirumab:13, 5-fluorouracil:11, capecitabine:2, encorafenib:1",Ramucirumab + Encorafenib,False
+49,1,2023-01-01,2023-04-12,101,32,5-fluorouracil+capecitabine+cetuximab+leucovorin+oxaliplatin,"leucovorin:8, oxaliplatin:8, cetuximab:8, 5-fluorouracil:7, capecitabine:1",FOLFOX + cetuximab,False
+49,2,2023-04-28,2023-05-30,32,13,5-fluorouracil+cetuximab+encorafenib+leucovorin+oxaliplatin,"5-fluorouracil:3, leucovorin:3, oxaliplatin:3, cetuximab:3, encorafenib:1",Cetuximab + Encorafenib,False
+49,3,2023-07-18,2023-09-27,71,5,aflibercept+bevacizumab+pembrolizumab,"pembrolizumab:3, aflibercept:1, bevacizumab:1",Aflibercept + Bevacizumab + Pembrolizumab,False
+49,4,2023-10-27,2023-12-31,65,4,regorafenib,regorafenib:4,Regorafenib,False
+50,1,2023-01-01,2023-02-08,38,17,5-fluorouracil+encorafenib+irinotecan+leucovorin+ramucirumab,"5-fluorouracil:4, leucovorin:4, irinotecan:4, ramucirumab:4, encorafenib:1",Ramucirumab + Encorafenib,False
+50,2,2023-02-25,2023-12-23,301,71,5-fluorouracil+bevacizumab+capecitabine+irinotecan+leucovorin+pembrolizumab+ramucirumab,"leucovorin:17, irinotecan:17, ramucirumab:17, 5-fluorouracil:15, bevacizumab:2, capecitabine:2, pembrolizumab:1",Bevacizumab + Ramucirumab + Pembrolizumab,False
+50,3,2024-02-03,2024-09-10,220,14,cetuximab+panitumumab,"panitumumab:13, cetuximab:1",Cetuximab + Panitumumab,False
+50,4,2024-10-08,2024-12-26,79,5,bevacizumab,bevacizumab:5,Bevacizumab,False
+50,5,2025-01-05,2025-05-25,140,8,bevacizumab+capecitabine+cetuximab,"cetuximab:5, bevacizumab:2, capecitabine:1",Capecitabine + bevacizumab + cetuximab,False
+50,6,2025-06-09,2025-09-19,102,7,cetuximab+ramucirumab,"cetuximab:6, ramucirumab:1",Ramucirumab + Cetuximab,False
+51,1,2023-01-01,2024-03-08,432,36,5-fluorouracil+aflibercept+capecitabine+irinotecan+leucovorin+nivolumab+pembrolizumab,"pembrolizumab:14, leucovorin:6, irinotecan:6, 5-fluorouracil:3, capecitabine:3, nivolumab:3, aflibercept:1",Aflibercept + Nivolumab + Pembrolizumab,False
+52,1,2023-01-01,2023-04-22,111,36,5-fluorouracil+encorafenib+irinotecan+leucovorin,"5-fluorouracil:9, leucovorin:9, irinotecan:9, encorafenib:9",Encorafenib,False
+52,2,2023-06-09,2023-07-01,22,3,regorafenib,regorafenib:3,Regorafenib,False
+53,1,2023-01-01,2023-08-09,220,43,5-fluorouracil+capecitabine+irinotecan+leucovorin+nivolumab,"leucovorin:14, irinotecan:14, 5-fluorouracil:13, capecitabine:1, nivolumab:1",Nivolumab,False
+54,1,2023-01-01,2023-04-10,99,7,5-fluorouracil+capecitabine+panitumumab,"capecitabine:5, panitumumab:1, 5-fluorouracil:1",Capecitabine + panitumumab,False
+55,1,2023-01-01,2023-07-16,196,56,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+panitumumab,"leucovorin:14, oxaliplatin:14, panitumumab:14, 5-fluorouracil:12, capecitabine:2",FOLFOX + panitumumab,False
+55,2,2023-08-11,2023-10-19,69,22,5-fluorouracil+aflibercept+capecitabine+leucovorin+oxaliplatin+panitumumab+ramucirumab,"panitumumab:5, leucovorin:5, oxaliplatin:5, 5-fluorouracil:4, aflibercept:1, capecitabine:1, ramucirumab:1",FOLFOX + aflibercept + ramucirumab + panitumumab,False
+55,3,2023-11-06,2023-12-03,27,13,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+panitumumab+regorafenib,"leucovorin:3, oxaliplatin:3, panitumumab:3, 5-fluorouracil:2, regorafenib:1, capecitabine:1",Panitumumab + Regorafenib,False
+55,4,2024-01-09,2024-03-16,67,6,bevacizumab+leucovorin,"bevacizumab:5, leucovorin:1",Bevacizumab,False
+55,5,2024-04-12,2024-05-22,40,4,bevacizumab+regorafenib,"bevacizumab:3, regorafenib:1",Bevacizumab + Regorafenib,False
+55,6,2024-06-14,2024-06-14,0,2,bevacizumab+cetuximab,"cetuximab:1, bevacizumab:1",Bevacizumab + Cetuximab,False
+55,7,2024-07-28,2024-11-22,117,8,ramucirumab,ramucirumab:8,Ramucirumab,False
+55,8,2024-12-02,2024-12-02,0,2,cetuximab+ramucirumab,"cetuximab:1, ramucirumab:1",Ramucirumab + Cetuximab,False
+56,1,2023-01-01,2023-07-18,198,40,5-fluorouracil+leucovorin+oxaliplatin+ramucirumab,"5-fluorouracil:13, leucovorin:13, oxaliplatin:13, ramucirumab:1",FOLFOX + ramucirumab,False
+56,2,2023-08-26,2023-12-19,115,7,aflibercept+capecitabine+encorafenib,"aflibercept:4, capecitabine:2, encorafenib:1",Aflibercept + Encorafenib,False
+57,1,2023-01-01,2023-04-24,113,7,5-fluorouracil+capecitabine,"5-fluorouracil:5, capecitabine:2",5-FU,False
+57,2,2023-05-18,2023-06-06,19,3,5-fluorouracil+encorafenib,"5-fluorouracil:2, encorafenib:1",Encorafenib,False
+57,3,2024-03-21,2024-04-23,33,3,5-fluorouracil,5-fluorouracil:3,5-FU,False
+57,4,2024-05-13,2024-11-21,192,11,capecitabine+cetuximab,"cetuximab:9, capecitabine:2",Capecitabine + cetuximab,False
+58,1,2023-01-01,2023-05-19,138,12,capecitabine+ramucirumab,"capecitabine:11, ramucirumab:1",Capecitabine + ramucirumab,False
+58,2,2023-06-01,2023-10-15,136,9,5-fluorouracil+aflibercept+capecitabine+nivolumab+oxaliplatin,"capecitabine:5, oxaliplatin:1, nivolumab:1, 5-fluorouracil:1, aflibercept:1",Aflibercept + Nivolumab,False
+58,3,2023-10-26,2023-12-15,50,5,aflibercept+panitumumab,"aflibercept:4, panitumumab:1",Aflibercept + Panitumumab,False
+58,4,2023-12-27,2024-02-08,43,4,aflibercept+bevacizumab,"aflibercept:3, bevacizumab:1",Aflibercept + Bevacizumab,False
+59,1,2023-01-01,2023-07-26,206,44,5-fluorouracil+capecitabine+irinotecan+leucovorin+nivolumab+panitumumab,"leucovorin:14, irinotecan:14, 5-fluorouracil:12, capecitabine:2, panitumumab:1, nivolumab:1",Panitumumab + Nivolumab,False
+59,2,2023-08-10,2024-02-24,198,11,nivolumab+ramucirumab,"nivolumab:10, ramucirumab:1",Ramucirumab + Nivolumab,False
+60,1,2023-01-01,2023-05-04,123,19,5-fluorouracil+capecitabine+oxaliplatin,"oxaliplatin:9, capecitabine:8, 5-fluorouracil:2",CAPOX,False
+60,2,2023-12-12,2023-12-12,0,2,5-fluorouracil+oxaliplatin,"oxaliplatin:1, 5-fluorouracil:1",FOLFOX,False
+61,1,2023-01-01,2023-05-02,121,26,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+pembrolizumab+ramucirumab,"leucovorin:8, oxaliplatin:8, 5-fluorouracil:7, pembrolizumab:1, capecitabine:1, ramucirumab:1",Ramucirumab + Pembrolizumab,False
+61,2,2023-05-18,2023-10-12,147,28,5-fluorouracil+leucovorin+oxaliplatin+regorafenib,"oxaliplatin:9, 5-fluorouracil:9, leucovorin:9, regorafenib:1",Regorafenib,False
+62,1,2023-01-01,2023-05-12,131,24,5-fluorouracil+capecitabine+oxaliplatin+ramucirumab,"oxaliplatin:8, ramucirumab:8, capecitabine:7, 5-fluorouracil:1",CAPOX + ramucirumab,False
+62,2,2023-06-10,2023-10-30,142,8,cetuximab,cetuximab:8,Cetuximab,False
+62,3,2023-12-11,2024-08-24,257,14,aflibercept+nivolumab+ramucirumab,"nivolumab:7, aflibercept:6, ramucirumab:1",Aflibercept + Ramucirumab + Nivolumab,False
+63,1,2023-01-01,2023-06-10,160,36,5-fluorouracil+irinotecan+leucovorin+regorafenib,"5-fluorouracil:9, leucovorin:9, irinotecan:9, regorafenib:9",Regorafenib,False
+63,2,2023-07-06,2023-08-04,29,13,5-fluorouracil+cisplatin+irinotecan+leucovorin+regorafenib,"leucovorin:3, regorafenib:3, 5-fluorouracil:3, irinotecan:3, cisplatin:1",Regorafenib,False
+64,1,2023-01-01,2023-06-09,159,30,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:10, leucovorin:10, irinotecan:10",FOLFIRI,False
+64,2,2023-07-24,2023-08-18,25,4,aflibercept+cetuximab+cisplatin,"cetuximab:2, cisplatin:1, aflibercept:1",Aflibercept + Cetuximab,False
+64,3,2024-07-15,2024-11-12,120,8,bevacizumab+nivolumab,"bevacizumab:7, nivolumab:1",Bevacizumab + Nivolumab,False
+65,1,2023-01-01,2023-06-30,180,40,5-fluorouracil+aflibercept+capecitabine+leucovorin+oxaliplatin,"leucovorin:13, oxaliplatin:13, 5-fluorouracil:12, aflibercept:1, capecitabine:1",FOLFOX + aflibercept,False
+66,1,2023-01-01,2023-05-08,127,9,5-fluorouracil+ramucirumab,"5-fluorouracil:8, ramucirumab:1",5-FU + ramucirumab,False
+66,2,2023-05-18,2023-12-18,214,15,5-fluorouracil+capecitabine+cetuximab+panitumumab,"5-fluorouracil:12, cetuximab:1, capecitabine:1, panitumumab:1",5-FU + cetuximab + panitumumab,False
+66,3,2024-01-26,2024-02-05,10,2,bevacizumab,bevacizumab:2,Bevacizumab,False
+67,1,2023-01-01,2023-09-17,259,30,capecitabine+encorafenib+oxaliplatin+pembrolizumab,"capecitabine:14, oxaliplatin:14, encorafenib:1, pembrolizumab:1",Encorafenib + Pembrolizumab,False
+67,2,2023-11-01,2024-05-23,204,12,aflibercept,aflibercept:12,Aflibercept,False
+67,3,2024-06-29,2025-05-04,309,19,regorafenib,regorafenib:19,Regorafenib,False
+68,1,2023-01-01,2023-02-06,36,16,5-fluorouracil+irinotecan+leucovorin+regorafenib,"5-fluorouracil:4, leucovorin:4, irinotecan:4, regorafenib:4",Regorafenib,False
+68,2,2023-03-20,2023-05-15,56,6,cisplatin+encorafenib+ramucirumab,"cisplatin:4, encorafenib:1, ramucirumab:1",Ramucirumab + Encorafenib,False
+68,3,2023-05-26,2023-12-06,194,15,aflibercept+cisplatin+regorafenib,"cisplatin:12, aflibercept:2, regorafenib:1",Aflibercept + Regorafenib,False
+68,4,2024-01-17,2024-06-05,140,10,bevacizumab,bevacizumab:10,Bevacizumab,False
+68,5,2024-06-20,2024-09-12,84,8,aflibercept+bevacizumab+leucovorin,"bevacizumab:6, leucovorin:1, aflibercept:1",Aflibercept + Bevacizumab,False
+69,1,2023-01-01,2023-06-17,167,9,5-fluorouracil+pembrolizumab,"5-fluorouracil:5, pembrolizumab:4",Pembrolizumab,False
+69,2,2023-06-29,2023-07-24,25,3,panitumumab+pembrolizumab,"pembrolizumab:2, panitumumab:1",Panitumumab + Pembrolizumab,False
+69,3,2023-09-03,2024-03-01,180,10,5-fluorouracil+capecitabine,"5-fluorouracil:9, capecitabine:1",5-FU,False
+69,4,2024-03-26,2024-05-06,41,4,5-fluorouracil+irinotecan,"5-fluorouracil:3, irinotecan:1",FOLFIRI,False
+69,5,2024-06-26,2024-08-30,65,7,bevacizumab+nivolumab+oxaliplatin,"oxaliplatin:5, nivolumab:1, bevacizumab:1",Bevacizumab + Nivolumab,False
+70,1,2023-01-01,2023-08-08,219,43,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+regorafenib,"leucovorin:14, oxaliplatin:14, 5-fluorouracil:13, capecitabine:1, regorafenib:1",Regorafenib,False
+70,2,2024-04-27,2024-08-07,102,22,5-fluorouracil+capecitabine+leucovorin+oxaliplatin+panitumumab,"leucovorin:7, oxaliplatin:7, 5-fluorouracil:6, panitumumab:1, capecitabine:1",FOLFOX + panitumumab,False
+71,1,2023-01-01,2023-04-02,91,16,5-fluorouracil+aflibercept+capecitabine+oxaliplatin+regorafenib,"oxaliplatin:7, capecitabine:6, 5-fluorouracil:1, regorafenib:1, aflibercept:1",Aflibercept + Regorafenib,False
+71,2,2024-02-14,2024-12-05,295,17,irinotecan,irinotecan:17,Irinotecan,False
+71,3,2024-12-16,2025-07-21,217,13,5-fluorouracil+capecitabine+irinotecan+leucovorin,"5-fluorouracil:9, capecitabine:2, leucovorin:1, irinotecan:1",FOLFIRI,False
+72,1,2023-01-01,2023-06-29,179,53,5-fluorouracil+capecitabine+irinotecan+leucovorin+panitumumab+regorafenib,"leucovorin:13, irinotecan:13, panitumumab:13, 5-fluorouracil:12, regorafenib:1, capecitabine:1",Panitumumab + Regorafenib,False
+73,1,2023-01-01,2023-07-19,199,26,5-fluorouracil+capecitabine+oxaliplatin,"oxaliplatin:13, capecitabine:12, 5-fluorouracil:1",CAPOX,False
+73,2,2023-09-02,2023-10-12,40,6,bevacizumab+encorafenib+irinotecan,"encorafenib:4, irinotecan:1, bevacizumab:1",Bevacizumab + Encorafenib,False
+73,3,2023-10-24,2024-02-26,125,9,cetuximab+encorafenib,"encorafenib:8, cetuximab:1",Cetuximab + Encorafenib,False
+74,1,2023-01-01,2023-02-11,41,12,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:4, leucovorin:4, irinotecan:4",FOLFIRI,False
+74,2,2023-12-02,2024-01-14,43,6,cisplatin+encorafenib+regorafenib,"cisplatin:4, regorafenib:1, encorafenib:1",Encorafenib + Regorafenib,False
+75,1,2023-01-01,2023-04-06,95,24,5-fluorouracil+capecitabine+oxaliplatin+panitumumab,"oxaliplatin:8, panitumumab:8, capecitabine:7, 5-fluorouracil:1",CAPOX + panitumumab,False
+75,2,2023-04-21,2023-09-02,134,29,5-fluorouracil+capecitabine+encorafenib+oxaliplatin+panitumumab,"capecitabine:9, oxaliplatin:9, panitumumab:9, encorafenib:1, 5-fluorouracil:1",Panitumumab + Encorafenib,False
+75,3,2023-10-07,2024-05-12,218,14,bevacizumab+cetuximab,"cetuximab:13, bevacizumab:1",Bevacizumab + Cetuximab,False
+75,4,2025-04-14,2025-09-25,164,10,panitumumab,panitumumab:10,Panitumumab,False
+75,5,2025-10-20,2025-11-29,40,4,aflibercept+panitumumab,"panitumumab:3, aflibercept:1",Aflibercept + Panitumumab,False
+76,1,2023-01-01,2023-05-17,136,18,5-fluorouracil+aflibercept+capecitabine+cetuximab+oxaliplatin,"oxaliplatin:5, cetuximab:5, capecitabine:3, aflibercept:3, 5-fluorouracil:2",CAPOX + aflibercept + cetuximab,False
+76,2,2023-06-05,2023-11-04,152,10,aflibercept+ramucirumab,"aflibercept:9, ramucirumab:1",Aflibercept + Ramucirumab,False
+76,3,2023-12-08,2024-05-03,147,8,bevacizumab,bevacizumab:8,Bevacizumab,False
+76,4,2025-01-14,2025-02-16,33,4,bevacizumab+pembrolizumab,"bevacizumab:3, pembrolizumab:1",Bevacizumab + Pembrolizumab,False
+77,1,2023-01-01,2023-03-04,62,6,5-fluorouracil+capecitabine,"5-fluorouracil:5, capecitabine:1",5-FU,False
+78,1,2023-01-01,2023-10-02,274,54,5-fluorouracil+aflibercept+capecitabine+oxaliplatin,"oxaliplatin:18, aflibercept:18, capecitabine:17, 5-fluorouracil:1",CAPOX + aflibercept,False
+78,2,2024-11-28,2024-12-20,22,4,encorafenib+regorafenib,"regorafenib:3, encorafenib:1",Encorafenib + Regorafenib,False
+78,3,2025-01-13,2025-01-13,0,2,aflibercept+regorafenib,"aflibercept:1, regorafenib:1",Aflibercept + Regorafenib,False
+79,1,2023-01-01,2023-04-29,118,19,5-fluorouracil+panitumumab+regorafenib,"5-fluorouracil:9, regorafenib:9, panitumumab:1",Panitumumab + Regorafenib,False
+79,2,2023-05-14,2023-06-17,34,7,5-fluorouracil+leucovorin+regorafenib,"5-fluorouracil:3, regorafenib:3, leucovorin:1",Regorafenib,False
+79,3,2023-07-06,2023-07-28,22,4,capecitabine+regorafenib,"capecitabine:2, regorafenib:2",Regorafenib,False
+79,4,2023-08-21,2023-09-24,34,7,5-fluorouracil+aflibercept+regorafenib,"5-fluorouracil:3, regorafenib:3, aflibercept:1",Aflibercept + Regorafenib,False
+79,5,2023-10-10,2023-11-07,28,7,5-fluorouracil+cetuximab+regorafenib,"regorafenib:3, 5-fluorouracil:3, cetuximab:1",Cetuximab + Regorafenib,False
+80,1,2023-01-01,2023-04-16,105,16,capecitabine+oxaliplatin,"capecitabine:8, oxaliplatin:8",CAPOX,False
+80,2,2023-05-02,2023-10-24,175,23,5-fluorouracil+capecitabine+cisplatin+nivolumab+oxaliplatin+ramucirumab,"oxaliplatin:10, capecitabine:9, cisplatin:1, 5-fluorouracil:1, nivolumab:1, ramucirumab:1",Ramucirumab + Nivolumab,False
+81,1,2023-01-01,2023-07-04,184,37,5-fluorouracil+irinotecan+leucovorin+nivolumab,"5-fluorouracil:12, leucovorin:12, irinotecan:12, nivolumab:1",Nivolumab,False
+81,2,2023-07-20,2023-12-25,158,20,5-fluorouracil+encorafenib+irinotecan+leucovorin+ramucirumab,"5-fluorouracil:5, leucovorin:5, irinotecan:5, ramucirumab:4, encorafenib:1",Ramucirumab + Encorafenib,False
+81,3,2024-02-09,2024-08-17,190,10,bevacizumab+panitumumab,"panitumumab:8, bevacizumab:2",Bevacizumab + Panitumumab,False
+81,4,2024-09-02,2024-11-10,69,6,bevacizumab+capecitabine,"bevacizumab:5, capecitabine:1",Capecitabine + bevacizumab,False
+82,1,2023-01-01,2023-10-19,291,18,5-fluorouracil+aflibercept+capecitabine+nivolumab,"5-fluorouracil:9, nivolumab:7, capecitabine:1, aflibercept:1",Aflibercept + Nivolumab,False
+82,2,2023-11-13,2024-06-02,202,13,encorafenib+nivolumab+pembrolizumab,"pembrolizumab:6, nivolumab:5, encorafenib:2",Encorafenib + Nivolumab + Pembrolizumab,False
+82,3,2024-06-13,2024-12-07,177,12,5-fluorouracil+capecitabine+cetuximab+pembrolizumab,"capecitabine:8, cetuximab:2, pembrolizumab:1, 5-fluorouracil:1",Cetuximab + Pembrolizumab,False
+83,1,2023-01-01,2023-07-02,182,33,5-fluorouracil+capecitabine+leucovorin+oxaliplatin,"leucovorin:11, oxaliplatin:11, 5-fluorouracil:10, capecitabine:1",FOLFOX,False
+84,1,2023-01-01,2023-03-30,88,21,capecitabine+oxaliplatin+ramucirumab,"capecitabine:7, oxaliplatin:7, ramucirumab:7",CAPOX + ramucirumab,False
+85,1,2023-01-01,2023-05-25,144,37,5-fluorouracil+aflibercept+capecitabine+cetuximab+leucovorin+oxaliplatin,"leucovorin:9, oxaliplatin:9, cetuximab:9, 5-fluorouracil:8, aflibercept:1, capecitabine:1",FOLFOX + aflibercept + cetuximab,False
+85,2,2023-06-24,2023-09-18,86,6,encorafenib,encorafenib:6,Encorafenib,False
+86,1,2023-01-01,2024-01-26,390,47,5-fluorouracil+leucovorin+oxaliplatin+panitumumab+pembrolizumab+regorafenib,"pembrolizumab:12, panitumumab:8, 5-fluorouracil:7, leucovorin:7, oxaliplatin:7, regorafenib:6",Panitumumab + Pembrolizumab + Regorafenib,False
+86,2,2024-02-15,2024-04-26,71,7,bevacizumab+regorafenib,"regorafenib:6, bevacizumab:1",Bevacizumab + Regorafenib,False
+86,3,2024-05-15,2025-03-14,303,19,irinotecan+ramucirumab+regorafenib,"ramucirumab:10, regorafenib:8, irinotecan:1",Ramucirumab + Regorafenib,False
+86,4,2025-03-29,2025-05-12,44,4,encorafenib+ramucirumab,"ramucirumab:3, encorafenib:1",Ramucirumab + Encorafenib,False
+87,1,2023-01-01,2023-03-15,73,15,capecitabine+cetuximab+oxaliplatin,"capecitabine:5, oxaliplatin:5, cetuximab:5",CAPOX + cetuximab,False
+88,1,2023-01-01,2023-06-20,170,11,5-fluorouracil+capecitabine,"5-fluorouracil:8, capecitabine:3",5-FU,False
+88,2,2023-07-10,2023-08-11,32,4,5-fluorouracil+bevacizumab,"5-fluorouracil:3, bevacizumab:1",5-FU + bevacizumab,False
+88,3,2023-09-23,2023-10-29,36,3,oxaliplatin,oxaliplatin:3,Oxaliplatin,False
+89,1,2023-01-01,2023-10-14,286,74,5-fluorouracil+capecitabine+encorafenib+irinotecan+leucovorin+pembrolizumab+regorafenib,"leucovorin:18, irinotecan:18, regorafenib:18, 5-fluorouracil:17, capecitabine:1, pembrolizumab:1, encorafenib:1",Encorafenib + Pembrolizumab + Regorafenib,False
+89,2,2023-11-18,2024-07-12,237,13,oxaliplatin,oxaliplatin:13,Oxaliplatin,False
+90,1,2023-01-01,2023-03-22,80,18,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:6, leucovorin:6, irinotecan:6",FOLFIRI,False
+90,2,2023-04-18,2023-07-23,96,22,5-fluorouracil+capecitabine+irinotecan+leucovorin+regorafenib,"leucovorin:7, irinotecan:7, 5-fluorouracil:6, regorafenib:1, capecitabine:1",Regorafenib,False
+90,3,2023-08-12,2024-01-07,148,16,5-fluorouracil+cisplatin+irinotecan+leucovorin+panitumumab+ramucirumab,"panitumumab:5, 5-fluorouracil:3, leucovorin:3, irinotecan:3, cisplatin:1, ramucirumab:1",FOLFIRI + ramucirumab + panitumumab,False
+91,1,2023-01-01,2023-03-30,88,24,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:8, irinotecan:8, 5-fluorouracil:7, capecitabine:1",FOLFIRI,False
+92,1,2023-01-01,2023-05-23,142,30,5-fluorouracil+irinotecan+leucovorin,"5-fluorouracil:10, leucovorin:10, irinotecan:10",FOLFIRI,False
+92,2,2023-07-12,2023-12-07,148,7,ramucirumab+regorafenib,"regorafenib:6, ramucirumab:1",Ramucirumab + Regorafenib,False
+92,3,2023-12-29,2023-12-29,0,2,encorafenib+regorafenib,"encorafenib:1, regorafenib:1",Encorafenib + Regorafenib,False
+93,1,2023-01-01,2023-07-18,198,39,5-fluorouracil+capecitabine+irinotecan+leucovorin,"leucovorin:13, irinotecan:13, 5-fluorouracil:12, capecitabine:1",FOLFIRI,False
+93,2,2023-09-06,2024-01-11,127,9,cisplatin+encorafenib,"cisplatin:8, encorafenib:1",Encorafenib,False
+94,1,2023-01-01,2023-05-23,142,10,5-fluorouracil+capecitabine+panitumumab,"5-fluorouracil:7, capecitabine:2, panitumumab:1",5-FU + panitumumab,False
+95,1,2023-01-01,2023-11-17,320,64,aflibercept+capecitabine+oxaliplatin+regorafenib,"capecitabine:21, oxaliplatin:21, regorafenib:21, aflibercept:1",Aflibercept + Regorafenib,False
+96,1,2023-01-01,2023-05-15,134,40,5-fluorouracil+capecitabine+cetuximab+leucovorin+oxaliplatin,"leucovorin:10, oxaliplatin:10, cetuximab:10, 5-fluorouracil:9, capecitabine:1",FOLFOX + cetuximab,False
+96,2,2024-03-14,2024-07-11,119,12,5-fluorouracil+cetuximab+leucovorin+oxaliplatin+pembrolizumab+regorafenib,"regorafenib:3, 5-fluorouracil:2, leucovorin:2, oxaliplatin:2, cetuximab:2, pembrolizumab:1",Cetuximab + Pembrolizumab + Regorafenib,False
+97,1,2023-01-01,2023-02-24,54,21,5-fluorouracil+bevacizumab+cetuximab+irinotecan+leucovorin,"5-fluorouracil:5, leucovorin:5, irinotecan:5, cetuximab:5, bevacizumab:1",FOLFIRI + bevacizumab + cetuximab,False
+97,2,2023-03-07,2023-10-08,215,50,5-fluorouracil+capecitabine+cetuximab+cisplatin+irinotecan+leucovorin+pembrolizumab,"cetuximab:12, irinotecan:12, leucovorin:12, 5-fluorouracil:11, cisplatin:1, capecitabine:1, pembrolizumab:1",Cetuximab + Pembrolizumab,False
+97,3,2023-10-27,2023-11-09,13,10,5-fluorouracil+aflibercept+cetuximab+irinotecan+leucovorin,"aflibercept:2, cetuximab:2, irinotecan:2, 5-fluorouracil:2, leucovorin:2",FOLFIRI + aflibercept + cetuximab,False
+97,4,2023-12-28,2024-12-13,351,18,encorafenib+regorafenib,"regorafenib:16, encorafenib:2",Encorafenib + Regorafenib,False
+98,1,2023-01-01,2023-11-13,316,41,5-fluorouracil+aflibercept+capecitabine+oxaliplatin,"oxaliplatin:20, capecitabine:19, 5-fluorouracil:1, aflibercept:1",CAPOX + aflibercept,False
+98,2,2023-12-21,2024-08-31,254,15,bevacizumab+encorafenib,"bevacizumab:14, encorafenib:1",Bevacizumab + Encorafenib,False
+98,3,2024-09-21,2025-04-17,208,11,bevacizumab+regorafenib,"regorafenib:8, bevacizumab:3",Bevacizumab + Regorafenib,False
+98,4,2025-05-21,2026-02-04,259,17,oxaliplatin+ramucirumab,"oxaliplatin:16, ramucirumab:1",Ramucirumab,False
+99,1,2023-01-01,2024-04-29,484,55,5-fluorouracil+capecitabine+oxaliplatin+panitumumab+pembrolizumab,"capecitabine:15, oxaliplatin:15, panitumumab:15, 5-fluorouracil:9, pembrolizumab:1",Panitumumab + Pembrolizumab,False
+99,2,2024-05-13,2024-09-03,113,7,pembrolizumab+regorafenib,"pembrolizumab:6, regorafenib:1",Pembrolizumab + Regorafenib,False
+99,3,2024-09-24,2024-10-21,27,4,encorafenib+panitumumab+pembrolizumab,"pembrolizumab:2, encorafenib:1, panitumumab:1",Panitumumab + Encorafenib + Pembrolizumab,False
+100,1,2023-01-01,2023-10-04,276,17,capecitabine+ramucirumab,"ramucirumab:9, capecitabine:8",Capecitabine + ramucirumab,False
+100,2,2023-10-30,2024-01-11,73,6,bevacizumab+ramucirumab,"ramucirumab:5, bevacizumab:1",Bevacizumab + Ramucirumab,False
+100,3,2024-01-25,2024-03-14,49,4,capecitabine+ramucirumab,"ramucirumab:3, capecitabine:1",Capecitabine + ramucirumab,False

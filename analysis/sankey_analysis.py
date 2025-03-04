@@ -2,41 +2,127 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 
-def create_sankey_diagram(summary_df, output_file='analysis/figures/treatment_sankey.html'):
-    """Create an interactive Sankey diagram of treatment patterns"""
+def create_sankey_diagram(summary_df, output_file='analysis/figures/treatment_sankey.html', threshold_pct=2):
+    """
+    Create a sequential Sankey diagram showing treatment flows between lines of therapy
     
-    # Prepare nodes and links
-    nodes = set()
-    links = []
+    Args:
+        summary_df: DataFrame with treatment summary data
+        output_file: Path to save the HTML output
+        threshold_pct: Minimum percentage of patients for a regimen to be shown separately (default 5%)
+    """
+    import plotly.graph_objects as go
     
-    # Add treatment lines as nodes
-    for line in range(1, summary_df.line_of_therapy.max() + 1):
-        nodes.add(f"Line {line}")
+    # Process data
+    max_lines = min(4, summary_df.line_of_therapy.max())
+    nodes = []
+    links = {'source': [], 'target': [], 'value': [], 'customdata': []}
+    node_indices = {}
     
-    # Add regimens as nodes and create links
-    for pid in summary_df.patientid.unique():
-        patient_lines = summary_df[summary_df.patientid == pid].sort_values('line_of_therapy')
+    # Create a copy of summary_df to modify regimen_type
+    plot_df = summary_df.copy()
+    
+    # Group small regimens into "Others" for each line
+    for line in range(1, max_lines + 1):
+        line_data = plot_df[plot_df.line_of_therapy == line]
         
-        for i, row in patient_lines.iterrows():
-            regimen = row.initial_regimen
-            line = f"Line {row.line_of_therapy}"
-            nodes.add(regimen)
-            links.append((line, regimen, 1))
-            
-            # Add transitions between lines
-            if i < len(patient_lines) - 1:
-                next_line = f"Line {patient_lines.iloc[i+1].line_of_therapy}"
-                links.append((regimen, next_line, 1))
+        # Calculate total patients in this line
+        line_total_patients = len(line_data.patientid.unique())
+        threshold_count = line_total_patients * threshold_pct / 100
+        
+        regimen_counts = line_data.regimen_type.value_counts()
+        
+        # Identify regimens below threshold
+        small_regimens = regimen_counts[regimen_counts < threshold_count].index
+        
+        # Replace small regimens with "Others"
+        if not small_regimens.empty:
+            plot_df.loc[(plot_df.line_of_therapy == line) & 
+                       (plot_df.regimen_type.isin(small_regimens)), 
+                       'regimen_type'] = 'Others'
     
-    # Convert nodes to list and create node labels
-    nodes = list(nodes)
-    node_indices = {node: i for i, node in enumerate(nodes)}
+    # Create nodes for each line of therapy
+    for line in range(1, max_lines + 1):
+        line_data = plot_df[plot_df.line_of_therapy == line]
+        line_total = len(line_data.patientid.unique())  # Get total patients for this line
+        
+        # Get regimen counts
+        regimen_counts = line_data.regimen_type.value_counts()
+        
+        # Separate 'Others' from other regimens
+        others_count = regimen_counts.get('Others', 0)
+        regular_regimens = regimen_counts[regimen_counts.index != 'Others'].sort_values(ascending=False)
+        
+        # Add regular regimens first, in descending order
+        for regimen, count in regular_regimens.items():
+            node_name = f"L{line} {regimen}"
+            node_indices[node_name] = len(nodes)
+            nodes.append({
+                'name': node_name,
+                'count': count,
+                'percent': f"{(count/line_total)*100:.1f}%"  # Calculate percentage based on line total
+            })
+        
+        # Add 'Others' at the end, if it exists
+        if others_count > 0:
+            node_name = f"L{line} Others"
+            node_indices[node_name] = len(nodes)
+            nodes.append({
+                'name': node_name,
+                'count': others_count,
+                'percent': f"{(others_count/line_total)*100:.1f}%"
+            })
     
-    # Aggregate link values
-    link_dict = {}
-    for source, target, value in links:
-        key = (node_indices[source], node_indices[target])
-        link_dict[key] = link_dict.get(key, 0) + value
+    # Create links between lines using modified DataFrame
+    for line in range(1, max_lines):
+        transitions = plot_df[
+            (plot_df.line_of_therapy.isin([line, line+1])) &
+            (plot_df.patientid.duplicated(keep=False))
+        ].sort_values(['patientid', 'line_of_therapy'])
+        
+        # Calculate total patients in this line for percentage
+        line_total = len(plot_df[plot_df.line_of_therapy == line].patientid.unique())
+        
+        # Group transitions
+        transition_counts = transitions.groupby('patientid').agg({
+            'regimen_type': lambda x: tuple(x)
+        }).reset_index()
+        
+        # Count each transition pattern
+        pattern_counts = transition_counts.groupby('regimen_type').size()
+        
+        for trans_pattern, count in pattern_counts.items():
+            if len(trans_pattern) == 2:
+                source = f"L{line} {trans_pattern[0]}"
+                target = f"L{line+1} {trans_pattern[1]}"
+                
+                if source in node_indices and target in node_indices:
+                    links['source'].append(node_indices[source])
+                    links['target'].append(node_indices[target])
+                    links['value'].append(count)
+                    links['customdata'].append(f"{count} patients ({(count/line_total)*100:.1f}%)")
+    
+    # Create color scheme with additional color for "Others"
+    node_colors = []
+    for node in nodes:
+        name = node['name']
+        if 'Others' in name:
+            color = '#7f7f7f'  # gray for Others
+        elif 'FOLFOX' in name:
+            color = '#1f77b4'  # blue
+        elif 'FOLFIRI' in name:
+            color = '#2ca02c'  # green
+        elif 'CAPOX' in name:
+            color = '#ff7f0e'  # orange
+        elif any(x in name for x in ['LONSURF', 'Regorafenib', 'Fruquintinib']):
+            color = '#d62728'  # red
+        elif 'Fluoropyrimidine' in name:
+            color = '#9467bd'  # purple
+        elif any(x in name for x in ['Bevacizumab', 'Cetuximab', 'Panitumumab']):
+            color = '#8c564b'  # brown
+        else:
+            color = '#7f7f7f'  # gray
+        node_colors.append(color)
     
     # Create Sankey diagram
     fig = go.Figure(data=[go.Sankey(
@@ -44,22 +130,25 @@ def create_sankey_diagram(summary_df, output_file='analysis/figures/treatment_sa
             pad = 15,
             thickness = 20,
             line = dict(color = "black", width = 0.5),
-            label = nodes,
-            color = ["#1f77b4" if "Line" in n else "#2ca02c" for n in nodes]
+            label = [f"{n['name']}<br>{n['count']} ({n['percent']})" for n in nodes],
+            color = node_colors,
+            hovertemplate = "%{label}<extra></extra>"
         ),
         link = dict(
-            source = [k[0] for k in link_dict.keys()],
-            target = [k[1] for k in link_dict.keys()],
-            value = list(link_dict.values()),
-            color = ["rgba(169, 169, 169, 0.5)"]*len(link_dict)
+            source = links['source'],
+            target = links['target'],
+            value = links['value'],
+            customdata = links['customdata'],
+            hovertemplate = 'From %{source.label}<br>To %{target.label}<br>%{customdata}<extra></extra>',
+            color = ['rgba(169,169,169,0.3)'] * len(links['source'])
         )
     )])
     
     fig.update_layout(
-        title_text="Treatment Pattern Flow",
+        title_text="Sequential Treatment Patterns in mCRC",
         font_size=12,
-        height=600,
-        width=800
+        height=800,
+        width=1200
     )
     
     fig.write_html(output_file)
@@ -79,12 +168,12 @@ def analyze_treatment_patterns(detailed_df, summary_df):
     
     # 2. Analyze regimen sequences
     sequences = summary_df.groupby('patientid').agg({
-        'initial_regimen': lambda x: ' -> '.join(x),
+        'regimen_type': lambda x: ' -> '.join(x),
         'line_of_therapy': 'count'
     })
     
     # 3. Analyze drug combinations
-    combinations = detailed_df.groupby(['line_of_therapy', 'regimen']).size().reset_index(name='count')
+    combinations = detailed_df.groupby(['line_of_therapy', 'regimen_type']).size().reset_index(name='count')
     combinations = combinations.sort_values(['line_of_therapy', 'count'], ascending=[True, False])
     
     # Print results
@@ -110,23 +199,20 @@ def create_alternative_visualizations(summary_df, detailed_df):
     
     # 1. Create sunburst chart of treatment patterns
     def create_sunburst():
-        # Create hierarchical data structure
-        sunburst_df = summary_df.copy()
         fig = px.sunburst(
-            sunburst_df,
-            path=['line_of_therapy', 'initial_regimen'],
+            summary_df,
+            path=['line_of_therapy', 'regimen_type'],
             title='Treatment Patterns Hierarchy'
         )
         fig.write_html('analysis/figures/treatment_sunburst.html')
     
     # 2. Analyze and visualize common sequences
     def analyze_common_sequences():
-        # Get top 10 most common treatment sequences
         sequences = summary_df.groupby('patientid').agg({
-            'initial_regimen': lambda x: ' -> '.join(x)
+            'regimen_type': lambda x: ' -> '.join(x)
         }).reset_index()
         
-        sequence_counts = sequences['initial_regimen'].value_counts().head(10)
+        sequence_counts = sequences['regimen_type'].value_counts().head(10)
         
         fig = go.Figure(data=[
             go.Bar(x=sequence_counts.values,
@@ -150,7 +236,7 @@ def create_alternative_visualizations(summary_df, detailed_df):
             summary_df,
             x='line_of_therapy',
             y='duration_days',
-            color='initial_regimen',
+            color='regimen_type',
             title='Treatment Duration by Line and Regimen'
         )
         
@@ -177,4 +263,4 @@ if __name__ == "__main__":
     summary_df = pd.read_csv('output/crc_lot_summary.csv', parse_dates=['line_start_date', 'line_end_date'])
     
     # Run analysis
-    analyze_treatment_patterns(detailed_df, summary_df) 
+    analyze_treatment_patterns(detailed_df, summary_df)

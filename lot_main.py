@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print(input_df['administratedate'].head()) # Print the first few dates to inspect format
 
     # --- 3. Define Lines of Therapy for CRC ---
-    detailed_output, summary_output = define_treatment_lines_oncology(
+    detailed_output, summary_output, = define_treatment_lines_oncology(
         input_df.copy(),
         gap_period_options,
         new_biologic_agent_options,
@@ -42,3 +42,23 @@ if __name__ == '__main__':
     # Optional: Display summary statistics
     print("\nSummary of Lines of Therapy:")
     print(summary_output.groupby('patientid')['line_of_therapy'].max().describe())
+
+    # Example usage
+    # def main():
+    #     # Your existing code to process the data
+    #     detailed_output, summary_output, timeline_viewer = define_treatment_lines_oncology(
+    #         df, gap_period_options, new_biologic_agent_options, 
+    #         new_chemo_agent_options, drug_interchangeability
+    #     )
+        
+    #     # View timeline for a specific patient
+    #     patient_id = "12345"  # Replace with actual patient ID
+    #     timeline_file = timeline_viewer.view_patient_timeline(patient_id)
+        
+    #     # The timeline will be saved as an HTML file that you can open in a browser
+    #     # It will show:
+    #     # 1. Interactive timeline with drug administrations by line
+    #     # 2. Drug exposure pattern
+    #     # 3. Hover information for details
+    #     # 4. Ability to zoom and pan
+    #     # 5. Export options for the visualization

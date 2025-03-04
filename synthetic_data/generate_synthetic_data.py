@@ -10,7 +10,7 @@ def generate_crc_data(num_patients=100):
         num_patients (int): The number of patients to generate.
 
     Returns:
-        pd.DataFrame: The generated DataFrame.
+        pd.DataFrame: The generated DataFrame with source information.
     """
 
     # --- Define Drug Lists (Consistent with config.yaml) ---
@@ -33,6 +33,9 @@ def generate_crc_data(num_patients=100):
         'SingleAgentFLU': fluoropyrimidines,  # Can be either 5-FU or capecitabine
     }
 
+    # Add source types
+    source_types = ['ORDER', 'ADMIN', 'UNSTRUCTURED']
+    
     data = []
 
     for patient_id in range(1, num_patients + 1):
@@ -63,9 +66,11 @@ def generate_crc_data(num_patients=100):
                 category = 'chemotherapy'
                 if drug in anti_egfr + anti_vegf:
                   category = 'biologics'
-                if drug in other_targeted + immunotherapy:
+                elif drug in other_targeted + immunotherapy: # Corrected: Added elif
                   category = 'targeted'
-                data.append([patient_id, drug, category, current_date])
+                else:  #Added explicit else
+                  category = 'chemotherapy'
+                data.append([patient_id, drug, category, current_date, np.random.choice(source_types)])
             current_date += timedelta(days=np.random.randint(5, 15))  # Vary administration intervals
 
 
@@ -111,11 +116,16 @@ def generate_crc_data(num_patients=100):
                 # --- Administer Current Regimen ---
                 for drug in current_regimen_drugs:
                     category = 'chemotherapy'
-                    if drug in anti_egfr + anti_vegf + immunotherapy:
+                    if drug in anti_egfr + anti_vegf: #removed immunotherapy from here.
                         category = 'biologics'
-                    if drug in other_targeted:
+                    elif drug in other_targeted: # Corrected: added elif
                         category = 'targeted'
-                    data.append([patient_id, drug, category, current_date])
+                    elif drug in immunotherapy: # added immunotherapy logic
+                        category = 'immunotherapy'
+                    else: #added explicit else
+                        category = 'chemotherapy'
+                    data.append([patient_id, drug, category, current_date, np.random.choice(source_types)])
+
                 current_date += timedelta(days=np.random.randint(10, 28))  # Realistic intervals
 
             # ---  Line Change Event (Gap, New Drug, etc.) ---
@@ -146,7 +156,7 @@ def generate_crc_data(num_patients=100):
                 current_date += timedelta(days=np.random.randint(14, 28)) # Shorter gap
 
 
-    df = pd.DataFrame(data, columns=['patientid', 'drugname', 'drugcategory', 'administratedate'])
+    df = pd.DataFrame(data, columns=['patientid', 'drugname', 'drugcategory', 'administratedate', 'SOURCE'])
     return df.sort_values(by=['patientid', 'administratedate']).reset_index(drop=True)
 
 
